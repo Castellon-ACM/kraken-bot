@@ -20,6 +20,21 @@
   "last_equity": 7.32,
   "runs": [
     {
+      "t": "2026-09-29T15:15:23+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83734.0,
+          "trend": "bajista",
+          "regime": "tendencia",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        }
+      ]
+    },
+    {
       "t": "2026-09-29T15:01:42+00:00",
       "trading": true,
       "items": [
