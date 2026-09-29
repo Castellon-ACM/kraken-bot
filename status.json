@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T12:49:28+00:00",
+  "updated": "2026-09-29T13:44:25+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -13,6 +13,28 @@
     {
       "t": "2026-09-29T12:48:51+00:00",
       "msg": "Ingreso de 7.32 $ en la cartera de futuros. No cuenta como ganancia ni pérdida."
+    }
+  ],
+  "runs": [
+    {
+      "t": "2026-09-29T13:44:25+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 84308.0,
+          "trend": "alcista",
+          "gap": -0.055,
+          "decision": "Sin señal: la media rápida sigue por debajo de la lenta, no ha habido cruce en esta vela"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2736.3,
+          "trend": "alcista",
+          "gap": 0.323,
+          "decision": "Sin señal: la media rápida sigue por encima de la lenta, no ha habido cruce en esta vela"
+        }
+      ]
     }
   ],
   "error": null
