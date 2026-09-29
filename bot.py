@@ -389,6 +389,20 @@ def main():
         bot.event(f"Error: {e}")
         bot.write_status(bool(bot.control.get("active")), error=str(e))
         raise
+    # prueba histórica bajo petición (archivo backtest_request.json con un id nuevo)
+    req = read_json(os.path.join(HERE, "backtest_request.json"), {})
+    if int(req.get("id", 0)) > int(bot.state.get("backtest_done", 0)):
+        bot.state["backtest_done"] = int(req["id"])
+        try:
+            from backtest import run_backtest
+            bot.state["backtest"] = run_backtest(
+                CHARTS_URL, SYMBOLS, NAMES,
+                {"fast": EMA_FAST, "slow": EMA_SLOW, "trend": EMA_TREND, "atr": ATR_LEN,
+                 "sl": SL_ATR, "tp": TP_ATR, "risk": RISK_PER_TRADE},
+                n=int(req.get("n", 100)))
+        except Exception as e:
+            bot.state["backtest"] = {"error": str(e)}
+        write_json(P_STATE, bot.state)
 
 
 if __name__ == "__main__":
