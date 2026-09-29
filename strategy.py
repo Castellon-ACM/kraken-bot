@@ -1,17 +1,16 @@
 """
-Estrategia activa: la única que ganó en los dos años de la prueba histórica.
+Estrategia activa: ruptura de 20 días con filtro de la media de 200 (velas DIARIAS).
+Fue de las más sólidas de la prueba de 972 variantes y de las que más opera (~15 veces al año).
 
-  Solo BTC, velas de 1 hora.
-  Compra: la media de 21 cruza por encima de la de 55 y el precio está sobre la media de 100.
-  Venta:  la media de 21 cruza por debajo de la de 55 y el precio está bajo la media de 100.
-  Stop a 3 ATR y objetivo a 4,5 ATR. Se cierra antes si las medias se cruzan en contra.
-
-El bot en vivo y la prueba histórica usan este mismo código.
+  Compra: el cierre diario supera el máximo de los 20 días anteriores y el precio está sobre la media de 200.
+  Venta:  el cierre diario cae por debajo del mínimo de los 20 días anteriores y el precio está bajo la media de 200.
+  Stop a 2 ATR diarios, puesto en Kraken. Sin objetivo fijo: se deja correr la ganancia.
+  Salida: la compra se cierra si el precio cae bajo el mínimo de 10 días; la venta, si supera el máximo de 10 días.
 """
 
-EMA_FAST, EMA_SLOW, EMA_TREND, ATR_LEN = 21, 55, 100, 14
-SL_ATR, TP_ATR = 3.0, 4.5
-WARMUP = max(EMA_SLOW, EMA_TREND) + 5
+EMA_TREND, ATR_LEN, ENTRY_N, EXIT_N = 200, 14, 20, 10
+SL_ATR, TP_ATR = 2.0, 0.0
+WARMUP = EMA_TREND + 5
 
 
 def ema(v, n):
@@ -21,55 +20,55 @@ def ema(v, n):
     return out
 
 
-def atr_series(c, n):
-    out, a = [None] * len(c), None
-    trs = [max(x["h"] - x["l"], abs(x["h"] - (c[i - 1]["c"] if i else x["c"])),
-               abs(x["l"] - (c[i - 1]["c"] if i else x["c"]))) for i, x in enumerate(c)]
-    for i in range(len(c)):
-        if i == n - 1:
-            a = sum(trs[:n]) / n
-        elif i >= n:
-            a = (a * (n - 1) + trs[i]) / n
+def wilder(v, n, start=0):
+    out = [None] * len(v)
+    if len(v) < start + n:
+        return out
+    a = sum(v[start:start + n]) / n
+    out[start + n - 1] = a
+    for i in range(start + n, len(v)):
+        a = (a * (n - 1) + v[i]) / n
         out[i] = a
     return out
 
 
+def channel(h, lo, n):
+    dh, dl = [None] * len(h), [None] * len(h)
+    for i in range(n, len(h)):
+        dh[i], dl[i] = max(h[i - n:i]), min(lo[i - n:i])
+    return dh, dl
+
+
 def compute(c):
-    cl = [x["c"] for x in c]
-    return {"c": cl, "fast": ema(cl, EMA_FAST), "slow": ema(cl, EMA_SLOW), "trend": ema(cl, EMA_TREND),
-            "atr": atr_series(c, ATR_LEN)}
-
-
-def cross_at(x, i):
-    f, s = x["fast"], x["slow"]
-    if f[i - 1] <= s[i - 1] and f[i] > s[i]:
-        return "up"
-    if f[i - 1] >= s[i - 1] and f[i] < s[i]:
-        return "down"
-    return None
+    cl, h, lo = [x["c"] for x in c], [x["h"] for x in c], [x["l"] for x in c]
+    tr = [h[0] - lo[0]] + [max(h[i] - lo[i], abs(h[i] - cl[i - 1]), abs(lo[i] - cl[i - 1])) for i in range(1, len(c))]
+    eh, el = channel(h, lo, ENTRY_N)
+    xh, xl = channel(h, lo, EXIT_N)
+    return {"c": cl, "trend": ema(cl, EMA_TREND), "atr": wilder(tr, ATR_LEN, 1),
+            "eh": eh, "el": el, "xh": xh, "xl": xl}
 
 
 def decide(x, i):
-    if i < WARMUP or x["atr"][i] is None:
+    if i < WARMUP or x["atr"][i] is None or x["eh"][i] is None:
         return None
-    p, f, s, t = x["c"][i], x["fast"][i], x["slow"][i], x["trend"][i]
-    cross, bull = cross_at(x, i), p > t
-    d = {"side": None, "mode": "tendencia", "cross": cross, "atr": x["atr"][i], "price": p,
-         "trend": "alcista" if bull else "bajista", "regime": "tendencia", "adx": None, "rsi": None,
-         "sl": SL_ATR, "tp": TP_ATR}
-    if cross == "up" and bull:
-        d.update(side="long", reason="Cruce alcista de medias con el precio sobre la media de 100")
-    elif cross == "down" and not bull:
-        d.update(side="short", reason="Cruce bajista de medias con el precio bajo la media de 100")
-    elif cross:
-        d["reason"] = (f"Cruce {'alcista' if cross == 'up' else 'bajista'} de medias, pero va contra la "
-                       f"tendencia de fondo ({d['trend']}), así que no entra")
+    p, t = x["c"][i], x["trend"][i]
+    bull = p > t
+    d = {"side": None, "mode": "ruptura", "atr": x["atr"][i], "price": p, "trend": "alcista" if bull else "bajista",
+         "regime": "diario", "adx": None, "rsi": None, "sl": SL_ATR, "tp": TP_ATR}
+    hi, lo = x["eh"][i], x["el"][i]
+    if p > hi and bull:
+        d.update(side="long", reason=f"Cierra por encima del máximo de 20 días ({hi:.0f}) en tendencia alcista")
+    elif p < lo and not bull:
+        d.update(side="short", reason=f"Cierra por debajo del mínimo de 20 días ({lo:.0f}) en tendencia bajista")
+    elif p > hi or p < lo:
+        d["reason"] = "Rompe el rango de 20 días, pero contra la tendencia de fondo (media de 200), así que no entra"
     else:
-        rel = "por encima" if f > s else "por debajo"
-        d["reason"] = f"Sin señal: la media rápida sigue {rel} de la lenta, no ha habido cruce en esta vela"
+        d["reason"] = f"Sin señal: el precio sigue dentro del rango de 20 días ({lo:.0f} – {hi:.0f})"
     return d
 
 
 def should_exit(x, i, side, mode=None):
-    c = cross_at(x, i)
-    return (side == "long" and c == "down") or (side == "short" and c == "up")
+    p = x["c"][i]
+    if x["xl"][i] is None:
+        return False
+    return (side == "long" and p < x["xl"][i]) or (side == "short" and p > x["xh"][i])

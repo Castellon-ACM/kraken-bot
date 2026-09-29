@@ -8,8 +8,8 @@ Archivos del repositorio:
   state.json    -> memoria interna del bot
   status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos)
 
-Estrategia (velas de 1 h): ver strategy.py. Solo BTC, medias 21/55 con filtro de la media de 100,
-  stop 3 ATR y objetivo 4,5 ATR, riesgo 1 % por operación.
+Estrategia (velas diarias): ver strategy.py. Ruptura de 20 días con filtro de la media de 200,
+  BTC y ETH, compra y venta, stop 2 ATR, salida por el canal de 10 días, riesgo 3 % por operación.
   Stop y objetivo se ponen como órdenes reduce-only en Kraken.
 """
 
@@ -31,15 +31,15 @@ ENV = os.getenv("KRAKEN_ENV", "demo").strip().lower() or "demo"
 API_KEY = os.getenv("KRAKEN_API_KEY", "").strip()
 API_SECRET = os.getenv("KRAKEN_API_SECRET", "").strip()
 CONFIRM_LIVE = os.getenv("CONFIRMO_DINERO_REAL", "no").strip().lower()
-SYMBOLS = ["PF_XBTUSD"]
-RISK_PER_TRADE = 0.01
-MAX_RISK_MIN_SIZE = 0.03  # si el tamaño mínimo de Kraken obliga a arriesgar más, hasta este límite
+SYMBOLS = ["PF_XBTUSD", "PF_ETHUSD"]
+RISK_PER_TRADE = 0.03
+MAX_RISK_MIN_SIZE = 0.05  # si el tamaño mínimo de Kraken obliga a arriesgar más, hasta este límite
 MAX_LEVERAGE = 3
 MAX_DAILY_LOSS = 0.06
 
-TIMEFRAME, CANDLE_MS = "1h", 3600 * 1000
-EMA_FAST, EMA_SLOW, EMA_TREND, ATR_LEN = st.EMA_FAST, st.EMA_SLOW, st.EMA_TREND, st.ATR_LEN
-SL_ATR, TP_ATR = st.SL_ATR, st.TP_ATR
+TIMEFRAME, CANDLE_MS = "1d", 86400 * 1000
+EMA_FAST, EMA_SLOW, EMA_TREND, ATR_LEN = 21, 55, 100, 14  # solo para la prueba histórica horaria antigua
+SL_ATR, TP_ATR = 3.0, 4.5
 
 BASES = {"demo": "https://demo-futures.kraken.com", "live": "https://futures.kraken.com"}
 CHARTS_URL = "https://futures.kraken.com/api/charts/v1"
@@ -128,9 +128,10 @@ class Kraken:
         return self.req("PUT", "/api/v3/leveragepreferences", {"symbol": sym, "maxLeverage": lev}, private=True)
 
 
-def get_candles(sym, hours=450):
+def get_candles(sym, count=330):
     now = int(time.time())
-    r = requests.get(f"{CHARTS_URL}/trade/{sym}/{TIMEFRAME}", params={"from": now - hours * 3600, "to": now}, timeout=15)
+    r = requests.get(f"{CHARTS_URL}/trade/{sym}/{TIMEFRAME}",
+                     params={"from": now - count * CANDLE_MS // 1000, "to": now}, timeout=15)
     r.raise_for_status()
     c = [{"t": int(x["time"]), "h": float(x["high"]), "l": float(x["low"]), "c": float(x["close"])}
          for x in r.json()["candles"]]
@@ -194,7 +195,7 @@ class Bot:
         if size <= 0:
             min_size = 10 ** -self.specs[sym][0]
             if min_size * dist <= equity * MAX_RISK_MIN_SIZE and min_size * price <= equity * MAX_LEVERAGE:
-                size = min_size  # con poco saldo, se usa el mínimo de Kraken aunque el riesgo pase del 1 %
+                size = min_size  # con poco saldo, se usa el mínimo de Kraken aunque el riesgo pase del fijado
             else:
                 self.event(f"{NAMES[sym]}: saldo insuficiente para abrir con el riesgo fijado")
                 return
@@ -205,19 +206,21 @@ class Bot:
             self.event(f"{NAMES[sym]}: orden enviada pero no aparece la posición, revisa Kraken")
             return
         entry, size, sg = float(pos["price"]), float(pos["size"]), 1 if side == "long" else -1
-        sl, tp = self.rprice(sym, entry - sg * dist), self.rprice(sym, entry + sg * tp_mult * atr_val)
+        sl = self.rprice(sym, entry - sg * dist)
+        tp = self.rprice(sym, entry + sg * tp_mult * atr_val) if tp_mult else None
         ex = "sell" if side == "long" else "buy"
         try:
             self.k.order(orderType="stp", symbol=sym, side=ex, size=size, stopPrice=sl,
                          triggerSignal="mark", reduceOnly="true")
-            self.k.order(orderType="take_profit", symbol=sym, side=ex, size=size, stopPrice=tp,
-                         triggerSignal="mark", reduceOnly="true")
+            if tp_mult:
+                self.k.order(orderType="take_profit", symbol=sym, side=ex, size=size, stopPrice=tp,
+                             triggerSignal="mark", reduceOnly="true")
         except Exception as e:
             self.close(sym, pos, f"no se pudo poner el stop: {e}")
             return
         self.state["open"][sym] = {"side": side, "sl": sl, "tp": tp, "mode": mode}
         self.event(f"Abierta {'compra' if side == 'long' else 'venta'} {NAMES[sym]} ({mode}) a {entry} "
-                   f"(stop {sl}, objetivo {tp})")
+                   f"(stop {sl}{f', objetivo {tp}' if tp else ', sin objetivo fijo'})")
 
     def run(self):
         if not self.state["leverage_set"]:
@@ -290,15 +293,16 @@ class Bot:
                     "regime": d["regime"], "adx": d["adx"], "rsi": d["rsi"]}
             new_candle = self.state["last_candle"].get(sym) != candles[-1]["t"]
             if not new_candle:
-                item["decision"] = "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+                item["decision"] = ("Vela diaria ya analizada. La próxima decisión será al cierre del día "
+                                    "(las 02:00 en España en horario de verano).")
                 analysis.append(item)
                 continue
             self.state["last_candle"][sym] = candles[-1]["t"]
             side_txt = {"long": "compra", "short": "venta"}
             pmode = self.state["open"].get(sym, {}).get("mode", "tendencia")
             if pos and st.should_exit(x, len(candles) - 1, pos["side"], pmode):
-                self.close(sym, pos, "cambio de tendencia")
-                item["decision"] = "Cerrada la posición porque las medias se han cruzado en contra"
+                self.close(sym, pos, "salida por el canal de 10 días")
+                item["decision"] = "Cerrada la posición: el precio ha roto el canal de 10 días en contra"
                 item["action"] = True
                 pos = None
             entry = d["side"]
