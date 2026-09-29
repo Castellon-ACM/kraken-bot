@@ -20,6 +20,26 @@
   "last_equity": 7.32,
   "runs": [
     {
+      "t": "2026-09-29T13:54:10+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 84308.0,
+          "trend": "alcista",
+          "gap": -0.055,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2736.3,
+          "trend": "alcista",
+          "gap": 0.323,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        }
+      ]
+    },
+    {
       "t": "2026-09-29T13:44:25+00:00",
       "trading": true,
       "items": [
@@ -39,5 +59,1022 @@
         }
       ]
     }
-  ]
+  ],
+  "backtest_done": 1,
+  "backtest": {
+    "generated": 1790690060270,
+    "signals": 100,
+    "from": 1774911600000,
+    "to": 1790668800000,
+    "taken": 93,
+    "skipped": 6,
+    "still_open": 1,
+    "wins": 42,
+    "losses": 51,
+    "by_exit": {
+      "objetivo": 42,
+      "stop": 44,
+      "cruce": 7
+    },
+    "net_r": 7.87,
+    "risk_per_trade": 0.02,
+    "approx_return_pct": 15.7,
+    "avg_hours": 15.2,
+    "by_symbol": {
+      "BTC": {
+        "trades": 37,
+        "wins": 20,
+        "net_r": 10.95
+      },
+      "ETH": {
+        "trades": 56,
+        "wins": 22,
+        "net_r": -3.08
+      }
+    },
+    "best_r": 1.45,
+    "worst_r": -1.26,
+    "max_losing_streak": 7,
+    "trades": [
+      {
+        "symbol": "BTC",
+        "t": 1774911600000,
+        "side": "short",
+        "entry": 66741.0,
+        "result": "cruce",
+        "exit": 67151.0,
+        "hours": 1,
+        "r": -0.52
+      },
+      {
+        "symbol": "BTC",
+        "t": 1774954800000,
+        "side": "short",
+        "entry": 66640.0,
+        "result": "stop",
+        "exit": 67725.04,
+        "hours": 5,
+        "r": -1.06
+      },
+      {
+        "symbol": "BTC",
+        "t": 1775106000000,
+        "side": "short",
+        "entry": 66582.0,
+        "result": "cruce",
+        "exit": 67370.0,
+        "hours": 58,
+        "r": -0.79
+      },
+      {
+        "symbol": "ETH",
+        "t": 1775120400000,
+        "side": "short",
+        "entry": 2043.1,
+        "result": "stop",
+        "exit": 2086.07,
+        "hours": 85,
+        "r": -1.05
+      },
+      {
+        "symbol": "BTC",
+        "t": 1775376000000,
+        "side": "short",
+        "entry": 66903.0,
+        "result": "stop",
+        "exit": 67283.67,
+        "hours": 7,
+        "r": -1.18
+      },
+      {
+        "symbol": "ETH",
+        "t": 1775426400000,
+        "side": "long",
+        "entry": 2084.3,
+        "result": "omitida"
+      },
+      {
+        "symbol": "ETH",
+        "t": 1775592000000,
+        "side": "long",
+        "entry": 2115.6,
+        "result": "objetivo",
+        "exit": 2175.78,
+        "hours": 2,
+        "r": 1.45
+      },
+      {
+        "symbol": "BTC",
+        "t": 1776106800000,
+        "side": "long",
+        "entry": 73328.0,
+        "result": "objetivo",
+        "exit": 74899.7,
+        "hours": 3,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1776110400000,
+        "side": "long",
+        "entry": 2253.5,
+        "result": "objetivo",
+        "exit": 2315.02,
+        "hours": 2,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1776715200000,
+        "side": "long",
+        "entry": 76280.0,
+        "result": "stop",
+        "exit": 75209.77,
+        "hours": 21,
+        "r": -1.07
+      },
+      {
+        "symbol": "ETH",
+        "t": 1776823200000,
+        "side": "long",
+        "entry": 2371.3,
+        "result": "stop",
+        "exit": 2327.1,
+        "hours": 31,
+        "r": -1.05
+      },
+      {
+        "symbol": "ETH",
+        "t": 1776945600000,
+        "side": "short",
+        "entry": 2329.0,
+        "result": "cruce",
+        "exit": 2332.9,
+        "hours": 70,
+        "r": -0.17
+      },
+      {
+        "symbol": "BTC",
+        "t": 1777186800000,
+        "side": "long",
+        "entry": 78108.0,
+        "result": "objetivo",
+        "exit": 78800.9,
+        "hours": 14,
+        "r": 1.33
+      },
+      {
+        "symbol": "ETH",
+        "t": 1777197600000,
+        "side": "long",
+        "entry": 2332.9,
+        "result": "omitida"
+      },
+      {
+        "symbol": "ETH",
+        "t": 1777298400000,
+        "side": "short",
+        "entry": 2314.3,
+        "result": "objetivo",
+        "exit": 2267.6,
+        "hours": 1,
+        "r": 1.43
+      },
+      {
+        "symbol": "BTC",
+        "t": 1777302000000,
+        "side": "short",
+        "entry": 76799.0,
+        "result": "stop",
+        "exit": 77782.92,
+        "hours": 42,
+        "r": -1.08
+      },
+      {
+        "symbol": "ETH",
+        "t": 1777453200000,
+        "side": "long",
+        "entry": 2339.5,
+        "result": "stop",
+        "exit": 2309.35,
+        "hours": 3,
+        "r": -1.08
+      },
+      {
+        "symbol": "ETH",
+        "t": 1777478400000,
+        "side": "short",
+        "entry": 2266.9,
+        "result": "stop",
+        "exit": 2302.48,
+        "hours": 35,
+        "r": -1.06
+      },
+      {
+        "symbol": "BTC",
+        "t": 1777611600000,
+        "side": "long",
+        "entry": 77138.0,
+        "result": "objetivo",
+        "exit": 78301.83,
+        "hours": 8,
+        "r": 1.4
+      },
+      {
+        "symbol": "ETH",
+        "t": 1777636800000,
+        "side": "long",
+        "entry": 2300.4,
+        "result": "objetivo",
+        "exit": 2342.47,
+        "hours": 33,
+        "r": 1.42
+      },
+      {
+        "symbol": "BTC",
+        "t": 1778342400000,
+        "side": "long",
+        "entry": 80612.0,
+        "result": "objetivo",
+        "exit": 81379.11,
+        "hours": 23,
+        "r": 1.34
+      },
+      {
+        "symbol": "ETH",
+        "t": 1778346000000,
+        "side": "long",
+        "entry": 2329.5,
+        "result": "objetivo",
+        "exit": 2359.82,
+        "hours": 24,
+        "r": 1.38
+      },
+      {
+        "symbol": "ETH",
+        "t": 1778554800000,
+        "side": "short",
+        "entry": 2309.3,
+        "result": "objetivo",
+        "exit": 2266.9,
+        "hours": 11,
+        "r": 1.42
+      },
+      {
+        "symbol": "BTC",
+        "t": 1778781600000,
+        "side": "long",
+        "entry": 81562.0,
+        "result": "stop",
+        "exit": 80515.4,
+        "hours": 11,
+        "r": -1.08
+      },
+      {
+        "symbol": "ETH",
+        "t": 1778814000000,
+        "side": "short",
+        "entry": 2273.5,
+        "result": "objetivo",
+        "exit": 2225.78,
+        "hours": 10,
+        "r": 1.43
+      },
+      {
+        "symbol": "BTC",
+        "t": 1778853600000,
+        "side": "short",
+        "entry": 79124.0,
+        "result": "objetivo",
+        "exit": 77422.12,
+        "hours": 19,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1779357600000,
+        "side": "short",
+        "entry": 2112.0,
+        "result": "stop",
+        "exit": 2140.59,
+        "hours": 7,
+        "r": -1.07
+      },
+      {
+        "symbol": "ETH",
+        "t": 1779433200000,
+        "side": "short",
+        "entry": 2126.4,
+        "result": "objetivo",
+        "exit": 2092.4,
+        "hours": 11,
+        "r": 1.41
+      },
+      {
+        "symbol": "BTC",
+        "t": 1779458400000,
+        "side": "short",
+        "entry": 76699.0,
+        "result": "objetivo",
+        "exit": 75750.38,
+        "hours": 4,
+        "r": 1.38
+      },
+      {
+        "symbol": "ETH",
+        "t": 1779670800000,
+        "side": "short",
+        "entry": 2092.2,
+        "result": "cruce",
+        "exit": 2105.9,
+        "hours": 4,
+        "r": -0.52
+      },
+      {
+        "symbol": "ETH",
+        "t": 1779771600000,
+        "side": "short",
+        "entry": 2099.0,
+        "result": "stop",
+        "exit": 2123.42,
+        "hours": 5,
+        "r": -1.09
+      },
+      {
+        "symbol": "BTC",
+        "t": 1779811200000,
+        "side": "short",
+        "entry": 76483.0,
+        "result": "objetivo",
+        "exit": 74942.67,
+        "hours": 21,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1779811200000,
+        "side": "short",
+        "entry": 2077.0,
+        "result": "objetivo",
+        "exit": 2023.62,
+        "hours": 29,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1780236000000,
+        "side": "short",
+        "entry": 73502.0,
+        "result": "stop",
+        "exit": 73908.73,
+        "hours": 8,
+        "r": -1.18
+      },
+      {
+        "symbol": "ETH",
+        "t": 1780239600000,
+        "side": "short",
+        "entry": 2007.9,
+        "result": "objetivo",
+        "exit": 1985.53,
+        "hours": 15,
+        "r": 1.37
+      },
+      {
+        "symbol": "BTC",
+        "t": 1781017200000,
+        "side": "short",
+        "entry": 61096.0,
+        "result": "stop",
+        "exit": 62186.93,
+        "hours": 5,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1781042400000,
+        "side": "short",
+        "entry": 1638.7,
+        "result": "cruce",
+        "exit": 1665.0,
+        "hours": 37,
+        "r": -0.79
+      },
+      {
+        "symbol": "ETH",
+        "t": 1781456400000,
+        "side": "short",
+        "entry": 1661.0,
+        "result": "stop",
+        "exit": 1676.85,
+        "hours": 4,
+        "r": -1.11
+      },
+      {
+        "symbol": "ETH",
+        "t": 1781470800000,
+        "side": "long",
+        "entry": 1717.7,
+        "result": "omitida"
+      },
+      {
+        "symbol": "ETH",
+        "t": 1781967600000,
+        "side": "long",
+        "entry": 1739.0,
+        "result": "stop",
+        "exit": 1710.18,
+        "hours": 20,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782082800000,
+        "side": "short",
+        "entry": 1705.0,
+        "result": "stop",
+        "exit": 1729.78,
+        "hours": 1,
+        "r": -1.07
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782090000000,
+        "side": "long",
+        "entry": 1741.9,
+        "result": "stop",
+        "exit": 1710.65,
+        "hours": 21,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782190800000,
+        "side": "short",
+        "entry": 1711.6,
+        "result": "objetivo",
+        "exit": 1670.09,
+        "hours": 3,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1782194400000,
+        "side": "short",
+        "entry": 62868.0,
+        "result": "objetivo",
+        "exit": 61500.32,
+        "hours": 2,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782752400000,
+        "side": "long",
+        "entry": 1625.9,
+        "result": "stop",
+        "exit": 1587.04,
+        "hours": 8,
+        "r": -1.04
+      },
+      {
+        "symbol": "BTC",
+        "t": 1782788400000,
+        "side": "short",
+        "entry": 59527.0,
+        "result": "objetivo",
+        "exit": 58073.68,
+        "hours": 22,
+        "r": 1.44
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782824400000,
+        "side": "short",
+        "entry": 1564.8,
+        "result": "stop",
+        "exit": 1591.46,
+        "hours": 14,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1782918000000,
+        "side": "long",
+        "entry": 1618.7,
+        "result": "objetivo",
+        "exit": 1667.21,
+        "hours": 21,
+        "r": 1.45
+      },
+      {
+        "symbol": "BTC",
+        "t": 1783620000000,
+        "side": "long",
+        "entry": 63173.0,
+        "result": "objetivo",
+        "exit": 64614.61,
+        "hours": 18,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1783652400000,
+        "side": "long",
+        "entry": 1774.7,
+        "result": "objetivo",
+        "exit": 1814.05,
+        "hours": 35,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1784030400000,
+        "side": "long",
+        "entry": 1859.3,
+        "result": "objetivo",
+        "exit": 1911.71,
+        "hours": 24,
+        "r": 1.45
+      },
+      {
+        "symbol": "BTC",
+        "t": 1784044800000,
+        "side": "long",
+        "entry": 64680.0,
+        "result": "stop",
+        "exit": 63754.23,
+        "hours": 55,
+        "r": -1.07
+      },
+      {
+        "symbol": "BTC",
+        "t": 1784372400000,
+        "side": "long",
+        "entry": 64021.0,
+        "result": "objetivo",
+        "exit": 64579.04,
+        "hours": 7,
+        "r": 1.33
+      },
+      {
+        "symbol": "ETH",
+        "t": 1784422800000,
+        "side": "long",
+        "entry": 1857.6,
+        "result": "stop",
+        "exit": 1843.35,
+        "hours": 17,
+        "r": -1.13
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785056400000,
+        "side": "long",
+        "entry": 1882.1,
+        "result": "objetivo",
+        "exit": 1899.18,
+        "hours": 6,
+        "r": 1.33
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785193200000,
+        "side": "short",
+        "entry": 63702.0,
+        "result": "objetivo",
+        "exit": 62547.38,
+        "hours": 14,
+        "r": 1.42
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785211200000,
+        "side": "short",
+        "entry": 1876.9,
+        "result": "stop",
+        "exit": 1909.56,
+        "hours": 11,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785308400000,
+        "side": "long",
+        "entry": 1922.1,
+        "result": "stop",
+        "exit": 1889.2,
+        "hours": 5,
+        "r": -1.06
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785330000000,
+        "side": "long",
+        "entry": 64593.0,
+        "result": "stop",
+        "exit": 63910.29,
+        "hours": 2,
+        "r": -1.09
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785337200000,
+        "side": "short",
+        "entry": 63894.0,
+        "result": "omitida"
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785337200000,
+        "side": "short",
+        "entry": 1889.5,
+        "result": "stop",
+        "exit": 1920.98,
+        "hours": 3,
+        "r": -1.06
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785348000000,
+        "side": "long",
+        "entry": 64436.0,
+        "result": "stop",
+        "exit": 63534.6,
+        "hours": 1,
+        "r": -1.07
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785351600000,
+        "side": "short",
+        "entry": 63524.0,
+        "result": "omitida"
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785405600000,
+        "side": "long",
+        "entry": 64490.0,
+        "result": "stop",
+        "exit": 63773.07,
+        "hours": 22,
+        "r": -1.09
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785405600000,
+        "side": "long",
+        "entry": 1915.9,
+        "result": "stop",
+        "exit": 1886.75,
+        "hours": 21,
+        "r": -1.07
+      },
+      {
+        "symbol": "ETH",
+        "t": 1785481200000,
+        "side": "short",
+        "entry": 1887.8,
+        "result": "omitida"
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785492000000,
+        "side": "short",
+        "entry": 63853.0,
+        "result": "objetivo",
+        "exit": 62911.71,
+        "hours": 4,
+        "r": 1.4
+      },
+      {
+        "symbol": "BTC",
+        "t": 1785776400000,
+        "side": "long",
+        "entry": 63843.0,
+        "result": "objetivo",
+        "exit": 64928.33,
+        "hours": 51,
+        "r": 1.41
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786370400000,
+        "side": "short",
+        "entry": 1891.7,
+        "result": "objetivo",
+        "exit": 1862.59,
+        "hours": 25,
+        "r": 1.4
+      },
+      {
+        "symbol": "BTC",
+        "t": 1786374000000,
+        "side": "short",
+        "entry": 64248.0,
+        "result": "objetivo",
+        "exit": 63474.51,
+        "hours": 24,
+        "r": 1.38
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786536000000,
+        "side": "long",
+        "entry": 1909.6,
+        "result": "stop",
+        "exit": 1889.61,
+        "hours": 2,
+        "r": -1.1
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786561200000,
+        "side": "short",
+        "entry": 1877.6,
+        "result": "stop",
+        "exit": 1897.5,
+        "hours": 10,
+        "r": -1.09
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786834800000,
+        "side": "short",
+        "entry": 1880.7,
+        "result": "stop",
+        "exit": 1888.07,
+        "hours": 17,
+        "r": -1.26
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786914000000,
+        "side": "short",
+        "entry": 1873.6,
+        "result": "stop",
+        "exit": 1884.14,
+        "hours": 4,
+        "r": -1.18
+      },
+      {
+        "symbol": "ETH",
+        "t": 1786932000000,
+        "side": "long",
+        "entry": 1900.3,
+        "result": "stop",
+        "exit": 1885.3,
+        "hours": 24,
+        "r": -1.13
+      },
+      {
+        "symbol": "ETH",
+        "t": 1787774400000,
+        "side": "long",
+        "entry": 2472.4,
+        "result": "objetivo",
+        "exit": 2532.51,
+        "hours": 12,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1787785200000,
+        "side": "long",
+        "entry": 79027.0,
+        "result": "objetivo",
+        "exit": 80588.69,
+        "hours": 10,
+        "r": 1.42
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788102000000,
+        "side": "long",
+        "entry": 2480.8,
+        "result": "objetivo",
+        "exit": 2509.19,
+        "hours": 1,
+        "r": 1.37
+      },
+      {
+        "symbol": "BTC",
+        "t": 1788105600000,
+        "side": "long",
+        "entry": 79338.0,
+        "result": "stop",
+        "exit": 78752.54,
+        "hours": 3,
+        "r": -1.14
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788138000000,
+        "side": "short",
+        "entry": 2412.3,
+        "result": "stop",
+        "exit": 2459.13,
+        "hours": 11,
+        "r": -1.05
+      },
+      {
+        "symbol": "BTC",
+        "t": 1788195600000,
+        "side": "long",
+        "entry": 78895.0,
+        "result": "stop",
+        "exit": 77846.6,
+        "hours": 15,
+        "r": -1.07
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788202800000,
+        "side": "long",
+        "entry": 2481.3,
+        "result": "stop",
+        "exit": 2441.35,
+        "hours": 17,
+        "r": -1.06
+      },
+      {
+        "symbol": "BTC",
+        "t": 1788436800000,
+        "side": "long",
+        "entry": 78623.0,
+        "result": "objetivo",
+        "exit": 79987.12,
+        "hours": 2,
+        "r": 1.41
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788447600000,
+        "side": "long",
+        "entry": 2517.4,
+        "result": "stop",
+        "exit": 2473.35,
+        "hours": 21,
+        "r": -1.06
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788624000000,
+        "side": "long",
+        "entry": 2471.2,
+        "result": "objetivo",
+        "exit": 2500.84,
+        "hours": 9,
+        "r": 1.37
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788915600000,
+        "side": "long",
+        "entry": 2497.9,
+        "result": "stop",
+        "exit": 2467.95,
+        "hours": 18,
+        "r": -1.08
+      },
+      {
+        "symbol": "ETH",
+        "t": 1788987600000,
+        "side": "short",
+        "entry": 2461.2,
+        "result": "objetivo",
+        "exit": 2407.16,
+        "hours": 15,
+        "r": 1.43
+      },
+      {
+        "symbol": "ETH",
+        "t": 1789131600000,
+        "side": "long",
+        "entry": 2630.4,
+        "result": "stop",
+        "exit": 2569.66,
+        "hours": 2,
+        "r": -1.04
+      },
+      {
+        "symbol": "ETH",
+        "t": 1789297200000,
+        "side": "short",
+        "entry": 2480.6,
+        "result": "stop",
+        "exit": 2506.29,
+        "hours": 6,
+        "r": -1.1
+      },
+      {
+        "symbol": "BTC",
+        "t": 1789369200000,
+        "side": "long",
+        "entry": 77875.0,
+        "result": "objetivo",
+        "exit": 78852.78,
+        "hours": 9,
+        "r": 1.38
+      },
+      {
+        "symbol": "ETH",
+        "t": 1789372800000,
+        "side": "long",
+        "entry": 2517.8,
+        "result": "stop",
+        "exit": 2487.82,
+        "hours": 5,
+        "r": -1.08
+      },
+      {
+        "symbol": "ETH",
+        "t": 1789455600000,
+        "side": "short",
+        "entry": 2473.2,
+        "result": "objetivo",
+        "exit": 2415.04,
+        "hours": 7,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1789466400000,
+        "side": "short",
+        "entry": 77027.0,
+        "result": "objetivo",
+        "exit": 75906.21,
+        "hours": 4,
+        "r": 1.4
+      },
+      {
+        "symbol": "ETH",
+        "t": 1789657200000,
+        "side": "long",
+        "entry": 2468.3,
+        "result": "objetivo",
+        "exit": 2534.05,
+        "hours": 22,
+        "r": 1.44
+      },
+      {
+        "symbol": "BTC",
+        "t": 1789682400000,
+        "side": "short",
+        "entry": 76376.0,
+        "result": "cruce",
+        "exit": 76533.0,
+        "hours": 2,
+        "r": -0.29
+      },
+      {
+        "symbol": "ETH",
+        "t": 1790344800000,
+        "side": "long",
+        "entry": 2695.1,
+        "result": "cruce",
+        "exit": 2686.5,
+        "hours": 1,
+        "r": -0.24
+      },
+      {
+        "symbol": "ETH",
+        "t": 1790470800000,
+        "side": "long",
+        "entry": 2701.5,
+        "result": "stop",
+        "exit": 2680.36,
+        "hours": 20,
+        "r": -1.13
+      },
+      {
+        "symbol": "BTC",
+        "t": 1790478000000,
+        "side": "long",
+        "entry": 84368.0,
+        "result": "objetivo",
+        "exit": 85050.17,
+        "hours": 7,
+        "r": 1.31
+      },
+      {
+        "symbol": "BTC",
+        "t": 1790560800000,
+        "side": "short",
+        "entry": 83414.0,
+        "result": "stop",
+        "exit": 84167.06,
+        "hours": 14,
+        "r": -1.11
+      },
+      {
+        "symbol": "ETH",
+        "t": 1790668800000,
+        "side": "long",
+        "entry": 2708.0,
+        "result": "abierta"
+      }
+    ]
+  }
 }
