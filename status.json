@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T14:03:42+00:00",
+  "updated": "2026-09-29T14:38:35+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -16,6 +16,26 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-09-29T14:38:35+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 84186.0,
+          "trend": "alcista",
+          "gap": -0.023,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2726.0,
+          "trend": "alcista",
+          "gap": 0.373,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        }
+      ]
+    },
     {
       "t": "2026-09-29T14:03:41+00:00",
       "trading": true,
