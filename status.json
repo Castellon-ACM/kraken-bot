@@ -1,25 +1,19 @@
 {
-  "updated": "2026-09-29T12:36:58+00:00",
+  "updated": "2026-09-29T12:40:09+00:00",
   "env": "live",
   "active": false,
   "trading": false,
-  "halted_today": false,
-  "equity": 7.17,
-  "day_pnl": -0.0,
-  "total_pnl": -0.0,
+  "halted_today": true,
+  "equity": 0.0,
+  "day_pnl": -7.17,
+  "total_pnl": -7.17,
   "initial_equity": 7.17,
-  "positions": [
+  "positions": [],
+  "events": [
     {
-      "symbol": "PF_SOLUSD",
-      "side": "long",
-      "size": 0.49,
-      "entry": 119.74,
-      "mark": 120.3363208489,
-      "pnl": 0.29,
-      "sl": null,
-      "tp": null
+      "t": "2026-09-29T12:40:09+00:00",
+      "msg": "Pérdida diaria del 6 % alcanzada. Sin operar hasta mañana."
     }
   ],
-  "events": [],
   "error": null
 }
