@@ -6,7 +6,7 @@ Se ejecuta una vez cada ~30 minutos, hace su trabajo y termina.
 Archivos del repositorio:
   control.json  -> lo escribe el panel del iPhone (activar/desactivar, cerrar todo)
   state.json    -> memoria interna del bot
-  status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos)
+  status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos, pasadas)
 
 Estrategia (velas de 1 h):
   Largo: EMA21 cruza sobre EMA55 con precio sobre EMA200. Corto: al revés.
@@ -153,12 +153,12 @@ def atr(c, n):
 
 def signal(c):
     if len(c) < EMA_TREND + 5:
-        return None, None, None, None
+        return None, None, None, None, None
     cl = [x["c"] for x in c]
     f, s, t = ema(cl, EMA_FAST), ema(cl, EMA_SLOW), ema(cl, EMA_TREND)
     cross = "up" if f[-2] <= s[-2] and f[-1] > s[-1] else "down" if f[-2] >= s[-2] and f[-1] < s[-1] else None
     entry = "long" if cross == "up" and cl[-1] > t[-1] else "short" if cross == "down" and cl[-1] < t[-1] else None
-    return entry, cross, atr(c, ATR_LEN), cl[-1]
+    return entry, cross, atr(c, ATR_LEN), cl[-1], {"fast": f[-1], "slow": s[-1], "trend": t[-1]}
 
 
 # ---------------------------------------------------------------- bot
@@ -276,8 +276,18 @@ class Bot:
             self.event("Pérdida diaria del 6 % alcanzada. Sin operar hasta mañana.")
 
         active = bool(self.control.get("active")) and not self.state["halted_today"] and equity >= 1
+        if not self.control.get("active"):
+            blocked = "el bot está apagado"
+        elif self.state["halted_today"]:
+            blocked = "se alcanzó la pérdida máxima de hoy"
+        elif equity < 1:
+            blocked = "no hay saldo en la cartera de futuros"
+        else:
+            blocked = None
         positions = self.k.positions()
+        analysis = []
         for sym in SYMBOLS:
+            name = NAMES[sym]
             pos = positions.get(sym)
             if not pos and sym in self.state["open"]:
                 try:
@@ -285,19 +295,51 @@ class Bot:
                 except Exception:
                     pass
                 self.state["open"].pop(sym)
-                self.event(f"{NAMES[sym]}: posición cerrada por stop u objetivo")
+                self.event(f"{name}: posición cerrada por stop u objetivo")
             candles = get_candles(sym)
-            if not candles or self.state["last_candle"].get(sym) == candles[-1]["t"]:
+            if not candles:
+                analysis.append({"symbol": name, "decision": "Kraken no devolvió precios, se revisará en la próxima pasada"})
+                continue
+            entry, cross, a, price, m = signal(candles)
+            if a is None:
+                analysis.append({"symbol": name, "decision": "Faltan velas para calcular las medias"})
+                continue
+            item = {"symbol": name, "price": round(price, 2),
+                    "trend": "alcista" if price > m["trend"] else "bajista",
+                    "gap": round((m["fast"] - m["slow"]) / m["slow"] * 100, 3)}
+            new_candle = self.state["last_candle"].get(sym) != candles[-1]["t"]
+            if not new_candle:
+                item["decision"] = "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+                analysis.append(item)
                 continue
             self.state["last_candle"][sym] = candles[-1]["t"]
-            entry, cross, a, price = signal(candles)
-            if a is None:
-                continue
+            side_txt = {"long": "compra", "short": "venta"}
             if pos and ((pos["side"] == "long" and cross == "down") or (pos["side"] == "short" and cross == "up")):
                 self.close(sym, pos, "cambio de tendencia")
+                item["decision"] = "Cerrada la posición porque la tendencia se ha dado la vuelta"
+                item["action"] = True
                 pos = None
             if entry and not pos and active:
                 self.open(sym, entry, price, a, equity)
+                if sym in self.state["open"]:
+                    item["decision"] = f"Señal de {side_txt[entry]}: operación abierta"
+                    item["action"] = True
+                else:
+                    item["decision"] = f"Señal de {side_txt[entry]}, pero no se pudo abrir (mira Actividad)"
+            elif entry and pos:
+                item["decision"] = f"Señal de {side_txt[entry]}, pero ya hay una posición abierta en {name}"
+            elif entry:
+                item["decision"] = f"Señal de {side_txt[entry]}, pero no entra porque {blocked}"
+            elif cross and "decision" not in item:
+                item["decision"] = (f"Cruce {'alcista' if cross == 'up' else 'bajista'} de medias, pero va contra la "
+                                    f"tendencia de fondo ({item['trend']}), así que no entra")
+            elif "decision" not in item:
+                rel = "por encima" if m["fast"] > m["slow"] else "por debajo"
+                item["decision"] = (f"Sin señal: la media rápida sigue {rel} de la lenta, no ha habido cruce "
+                                    f"en esta vela")
+            analysis.append(item)
+        self.state["runs"] = ([{"t": now_iso(), "trading": active, "items": analysis}]
+                              + self.state.get("runs", []))[:48]
 
         self.write_status(active, error=None if equity >= 1 else
                           "No hay saldo en la cartera de futuros de Kraken. Transfiere fondos para que el bot pueda operar.")
@@ -325,7 +367,8 @@ class Bot:
             "day_pnl": round(equity - (self.state["day_start_equity"] or equity), 2),
             "total_pnl": round(equity - (self.state["initial_equity"] or equity), 2),
             "initial_equity": round(self.state["initial_equity"] or equity, 2),
-            "positions": pos_list, "events": self.state["events"], "error": error,
+            "positions": pos_list, "events": self.state["events"], "runs": self.state.get("runs", []),
+            "error": error,
         })
         write_json(P_STATE, self.state)
 
