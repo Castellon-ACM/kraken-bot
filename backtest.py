@@ -3,6 +3,7 @@ Prueba histórica: busca las últimas N señales que habría dado la estrategia 
 y simula qué habría pasado con cada una (stop 2 ATR, objetivo 3 ATR, cierre por cruce contrario).
 Con mode=optimize en backtest_request.json prueba muchas combinaciones de ajustes.
 Con mode=ensemble evalúa la estrategia combinada de strategy.py frente a la anterior.
+Con mode=daily_all prueba todo con velas diarias (backtest_daily.py).
 """
 
 import time
@@ -110,6 +111,9 @@ def run_backtest(charts_url, symbols, names, p, n=100, hours=17520):
                 return optimize(charts_url, symbols, names, p, hours)
             if mode == "ensemble":
                 return evaluate_ensemble(charts_url, symbols, names, p, hours)
+            if mode == "daily_all":
+                from backtest_daily import evaluate_daily
+                return evaluate_daily(charts_url, ["PF_XBTUSD", "PF_ETHUSD"], {"PF_XBTUSD": "BTC", "PF_ETHUSD": "ETH"})
     except FileNotFoundError:
         pass
     allsig = []
