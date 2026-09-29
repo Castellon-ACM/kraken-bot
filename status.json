@@ -1,12 +1,12 @@
 {
-  "updated": "2026-09-29T16:09:27+00:00",
+  "updated": "2026-09-29T18:14:10+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
   "equity": 23.39,
-  "day_pnl": 0.0,
-  "total_pnl": 0.0,
+  "day_pnl": -0.0,
+  "total_pnl": -0.0,
   "initial_equity": 23.39,
   "positions": [],
   "events": [
@@ -20,6 +20,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-09-29T18:14:09+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83466.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2687.6,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-09-29T16:09:26+00:00",
       "trading": true,
