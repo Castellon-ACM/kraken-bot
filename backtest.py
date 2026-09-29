@@ -2,6 +2,7 @@
 Prueba histórica: busca las últimas N señales que habría dado la estrategia en BTC y ETH
 y simula qué habría pasado con cada una (stop 2 ATR, objetivo 3 ATR, cierre por cruce contrario).
 Con mode=optimize en backtest_request.json prueba muchas combinaciones de ajustes.
+Con mode=ensemble evalúa la estrategia combinada de strategy.py frente a la anterior.
 """
 
 import time
@@ -104,8 +105,11 @@ def run_backtest(charts_url, symbols, names, p, n=100, hours=17520):
     import json, os
     try:
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "backtest_request.json")) as fh:
-            if json.load(fh).get("mode") == "optimize":
+            mode = json.load(fh).get("mode")
+            if mode == "optimize":
                 return optimize(charts_url, symbols, names, p, hours)
+            if mode == "ensemble":
+                return evaluate_ensemble(charts_url, symbols, names, p, hours)
     except FileNotFoundError:
         pass
     allsig = []
@@ -183,3 +187,65 @@ def optimize(charts_url, symbols, names, base, hours=17520):
     return {"generated": int(time.time() * 1000), "tested": len(rows), "current": current[0] if current else None,
             "best_year1": ranked[:10], "robust": both_good[:10],
             "robust_count": len(both_good)}
+
+
+def simulate_ensemble(sym, c):
+    import strategy as st
+    x = st.compute(c)
+    trades, busy_until = [], -1
+    for i in range(st.WARMUP, len(c) - 1):
+        d = st.decide(x, i)
+        if not d or not d["side"]:
+            continue
+        sig = {"symbol": sym, "t": c[i]["t"], "side": d["side"], "mode": d["mode"], "entry": d["price"]}
+        if i <= busy_until:
+            sig["result"] = "omitida"
+            trades.append(sig)
+            continue
+        sg = 1 if d["side"] == "long" else -1
+        e = d["price"]
+        sl, tp = e - sg * d["sl"] * d["atr"], e + sg * d["tp"] * d["atr"]
+        risk = abs(e - sl)
+        result, exit_px, j = None, None, i
+        for j in range(i + 1, len(c)):
+            k = c[j]
+            if (k["l"] <= sl) if sg > 0 else (k["h"] >= sl):
+                result, exit_px = "stop", sl
+                break
+            if (k["h"] >= tp) if sg > 0 else (k["l"] <= tp):
+                result, exit_px = "objetivo", tp
+                break
+            if st.should_exit(x, j, d["side"], d["mode"]):
+                result, exit_px = "cruce", k["c"]
+                break
+        if result is None:
+            sig["result"] = "abierta"
+            trades.append(sig)
+            break
+        sig.update(result=result, hours=j - i, r=round((sg * (exit_px - e) - FEE * (e + exit_px)) / risk, 2))
+        trades.append(sig)
+        busy_until = j
+    return trades
+
+
+def evaluate_ensemble(charts_url, symbols, names, base, hours=17520):
+    data = {names[s]: candles_history(charts_url, s, hours) for s in symbols}
+    split = (int(time.time()) - 365 * 86400) * 1000
+    risk = base["risk"]
+    new = {name: simulate_ensemble(name, c) for name, c in data.items()}
+    old = {name: simulate(name, c, base) for name, c in data.items()}
+    out = {"generated": int(time.time() * 1000), "combos": {}}
+    for combo in (["BTC"], ["ETH"], ["BTC", "ETH"]):
+        key = "+".join(combo)
+        tn = [x for n in combo for x in new[n]]
+        to = [x for n in combo for x in old[n]]
+        out["combos"][key] = {
+            "nueva": {"year1": _stats([x for x in tn if x["t"] < split], risk),
+                      "year2": _stats([x for x in tn if x["t"] >= split], risk)},
+            "anterior": {"year1": _stats([x for x in to if x["t"] < split], risk),
+                         "year2": _stats([x for x in to if x["t"] >= split], risk)},
+            "por_modo": {m: {"year1": _stats([x for x in tn if x.get("mode") == m and x["t"] < split], risk),
+                             "year2": _stats([x for x in tn if x.get("mode") == m and x["t"] >= split], risk)}
+                         for m in ("tendencia", "ruptura", "rebote")},
+        }
+    return out

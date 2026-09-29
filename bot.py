@@ -6,12 +6,11 @@ Se ejecuta una vez cada ~30 minutos, hace su trabajo y termina.
 Archivos del repositorio:
   control.json  -> lo escribe el panel del iPhone (activar/desactivar, cerrar todo)
   state.json    -> memoria interna del bot
-  status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos, pasadas)
+  status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos)
 
-Estrategia (velas de 1 h):
-  Largo: EMA21 cruza sobre EMA55 con precio sobre EMA200. Corto: al revés.
-  Stop a 2 ATR y objetivo a 3 ATR como órdenes reduce-only en Kraken.
-  Cruce contrario cierra la posición.
+Estrategia (velas de 1 h): combinada, ver strategy.py.
+  Un detector de mercado (ADX) elige entre tendencia, ruptura o rebote.
+  Stop y objetivo se ponen como órdenes reduce-only en Kraken.
 """
 
 import base64
@@ -25,6 +24,8 @@ from datetime import datetime, timezone
 from urllib.parse import urlencode
 
 import requests
+
+import strategy as st
 
 ENV = os.getenv("KRAKEN_ENV", "demo").strip().lower() or "demo"
 API_KEY = os.getenv("KRAKEN_API_KEY", "").strip()
@@ -114,9 +115,9 @@ class Kraken:
 
     def order(self, **p):
         j = self.req("POST", "/api/v3/sendorder", p, private=True)
-        st = j.get("sendStatus", {}).get("status")
-        if st != "placed":
-            raise RuntimeError(f"orden rechazada ({st})")
+        st_ = j.get("sendStatus", {}).get("status")
+        if st_ != "placed":
+            raise RuntimeError(f"orden rechazada ({st_})")
         return j
 
     def cancel_all(self, sym):
@@ -133,32 +134,6 @@ def get_candles(sym, hours=450):
     c = [{"t": int(x["time"]), "h": float(x["high"]), "l": float(x["low"]), "c": float(x["close"])}
          for x in r.json()["candles"]]
     return [x for x in c if x["t"] + CANDLE_MS <= now * 1000]
-
-
-def ema(v, n):
-    k, out = 2 / (n + 1), []
-    for i, x in enumerate(v):
-        out.append(x if i == 0 else x * k + out[-1] * (1 - k))
-    return out
-
-
-def atr(c, n):
-    trs = [max(x["h"] - x["l"], abs(x["h"] - (c[i - 1]["c"] if i else x["c"])),
-               abs(x["l"] - (c[i - 1]["c"] if i else x["c"]))) for i, x in enumerate(c)]
-    a = sum(trs[:n]) / n
-    for tr in trs[n:]:
-        a = (a * (n - 1) + tr) / n
-    return a
-
-
-def signal(c):
-    if len(c) < EMA_TREND + 5:
-        return None, None, None, None, None
-    cl = [x["c"] for x in c]
-    f, s, t = ema(cl, EMA_FAST), ema(cl, EMA_SLOW), ema(cl, EMA_TREND)
-    cross = "up" if f[-2] <= s[-2] and f[-1] > s[-1] else "down" if f[-2] >= s[-2] and f[-1] < s[-1] else None
-    entry = "long" if cross == "up" and cl[-1] > t[-1] else "short" if cross == "down" and cl[-1] < t[-1] else None
-    return entry, cross, atr(c, ATR_LEN), cl[-1], {"fast": f[-1], "slow": s[-1], "trend": t[-1]}
 
 
 # ---------------------------------------------------------------- bot
@@ -211,8 +186,8 @@ class Bot:
             if sym in SYMBOLS:
                 self.close(sym, pos, why)
 
-    def open(self, sym, side, price, atr_val, equity):
-        dist = SL_ATR * atr_val
+    def open(self, sym, side, price, atr_val, equity, sl_mult, tp_mult, mode):
+        dist = sl_mult * atr_val
         size = min(equity * RISK_PER_TRADE / dist, equity * MAX_LEVERAGE / len(SYMBOLS) / price)
         size = self.rsize(sym, size)
         if size <= 0:
@@ -225,7 +200,7 @@ class Bot:
             self.event(f"{NAMES[sym]}: orden enviada pero no aparece la posición, revisa Kraken")
             return
         entry, size, sg = float(pos["price"]), float(pos["size"]), 1 if side == "long" else -1
-        sl, tp = self.rprice(sym, entry - sg * dist), self.rprice(sym, entry + sg * TP_ATR * atr_val)
+        sl, tp = self.rprice(sym, entry - sg * dist), self.rprice(sym, entry + sg * tp_mult * atr_val)
         ex = "sell" if side == "long" else "buy"
         try:
             self.k.order(orderType="stp", symbol=sym, side=ex, size=size, stopPrice=sl,
@@ -235,8 +210,9 @@ class Bot:
         except Exception as e:
             self.close(sym, pos, f"no se pudo poner el stop: {e}")
             return
-        self.state["open"][sym] = {"side": side, "sl": sl, "tp": tp}
-        self.event(f"Abierta {'compra' if side == 'long' else 'venta'} {NAMES[sym]} a {entry} (stop {sl}, objetivo {tp})")
+        self.state["open"][sym] = {"side": side, "sl": sl, "tp": tp, "mode": mode}
+        self.event(f"Abierta {'compra' if side == 'long' else 'venta'} {NAMES[sym]} ({mode}) a {entry} "
+                   f"(stop {sl}, objetivo {tp})")
 
     def run(self):
         if not self.state["leverage_set"]:
@@ -300,13 +276,13 @@ class Bot:
             if not candles:
                 analysis.append({"symbol": name, "decision": "Kraken no devolvió precios, se revisará en la próxima pasada"})
                 continue
-            entry, cross, a, price, m = signal(candles)
-            if a is None:
-                analysis.append({"symbol": name, "decision": "Faltan velas para calcular las medias"})
+            x = st.compute(candles)
+            d = st.decide(x, len(candles) - 1)
+            if d is None:
+                analysis.append({"symbol": name, "decision": "Faltan velas para calcular los indicadores"})
                 continue
-            item = {"symbol": name, "price": round(price, 2),
-                    "trend": "alcista" if price > m["trend"] else "bajista",
-                    "gap": round((m["fast"] - m["slow"]) / m["slow"] * 100, 3)}
+            item = {"symbol": name, "price": round(d["price"], 2), "trend": d["trend"],
+                    "regime": d["regime"], "adx": d["adx"], "rsi": d["rsi"]}
             new_candle = self.state["last_candle"].get(sym) != candles[-1]["t"]
             if not new_candle:
                 item["decision"] = "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
@@ -314,29 +290,26 @@ class Bot:
                 continue
             self.state["last_candle"][sym] = candles[-1]["t"]
             side_txt = {"long": "compra", "short": "venta"}
-            if pos and ((pos["side"] == "long" and cross == "down") or (pos["side"] == "short" and cross == "up")):
+            pmode = self.state["open"].get(sym, {}).get("mode", "tendencia")
+            if pos and st.should_exit(x, len(candles) - 1, pos["side"], pmode):
                 self.close(sym, pos, "cambio de tendencia")
-                item["decision"] = "Cerrada la posición porque la tendencia se ha dado la vuelta"
+                item["decision"] = "Cerrada la posición porque las medias se han cruzado en contra"
                 item["action"] = True
                 pos = None
+            entry = d["side"]
             if entry and not pos and active:
-                self.open(sym, entry, price, a, equity)
+                self.open(sym, entry, d["price"], d["atr"], equity, d["sl"], d["tp"], d["mode"])
                 if sym in self.state["open"]:
-                    item["decision"] = f"Señal de {side_txt[entry]}: operación abierta"
+                    item["decision"] = f"{d['reason']}. Operación de {side_txt[entry]} abierta ({d['mode']})"
                     item["action"] = True
                 else:
-                    item["decision"] = f"Señal de {side_txt[entry]}, pero no se pudo abrir (mira Actividad)"
+                    item["decision"] = f"{d['reason']}, pero no se pudo abrir (mira Actividad)"
             elif entry and pos:
-                item["decision"] = f"Señal de {side_txt[entry]}, pero ya hay una posición abierta en {name}"
+                item["decision"] = f"{d['reason']}, pero ya hay una posición abierta en {name}"
             elif entry:
-                item["decision"] = f"Señal de {side_txt[entry]}, pero no entra porque {blocked}"
-            elif cross and "decision" not in item:
-                item["decision"] = (f"Cruce {'alcista' if cross == 'up' else 'bajista'} de medias, pero va contra la "
-                                    f"tendencia de fondo ({item['trend']}), así que no entra")
+                item["decision"] = f"{d['reason']}, pero no entra porque {blocked}"
             elif "decision" not in item:
-                rel = "por encima" if m["fast"] > m["slow"] else "por debajo"
-                item["decision"] = (f"Sin señal: la media rápida sigue {rel} de la lenta, no ha habido cruce "
-                                    f"en esta vela")
+                item["decision"] = d["reason"]
             analysis.append(item)
         self.state["runs"] = ([{"t": now_iso(), "trading": active, "items": analysis}]
                               + self.state.get("runs", []))[:48]
