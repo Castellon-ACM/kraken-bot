@@ -1,7 +1,7 @@
 {
   "day": "2026-09-29",
-  "day_start_equity": 7.32,
-  "initial_equity": 7.32,
+  "day_start_equity": 23.3928,
+  "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
     "PF_XBTUSD": 1790553600000,
@@ -11,14 +11,42 @@
   "handled_close_all": 0,
   "events": [
     {
+      "t": "2026-09-29T16:09:26+00:00",
+      "msg": "Ingreso de 16.07 $ en la cartera de futuros. No cuenta como ganancia ni pérdida."
+    },
+    {
       "t": "2026-09-29T12:48:51+00:00",
       "msg": "Ingreso de 7.32 $ en la cartera de futuros. No cuenta como ganancia ni pérdida."
     }
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 7.32,
+  "last_equity": 23.3928,
   "runs": [
+    {
+      "t": "2026-09-29T16:09:26+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83466.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2687.6,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-09-29T15:37:12+00:00",
       "trading": true,
