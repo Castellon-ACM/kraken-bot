@@ -8,8 +8,8 @@ Archivos del repositorio:
   state.json    -> memoria interna del bot
   status.json   -> lo que muestra el panel (saldo, ganancias, posiciones, eventos)
 
-Estrategia (velas de 1 h): combinada, ver strategy.py.
-  Un detector de mercado (ADX) elige entre tendencia, ruptura o rebote.
+Estrategia (velas de 1 h): ver strategy.py. Solo BTC, medias 21/55 con filtro de la media de 100,
+  stop 3 ATR y objetivo 4,5 ATR, riesgo 1 % por operación.
   Stop y objetivo se ponen como órdenes reduce-only en Kraken.
 """
 
@@ -31,14 +31,15 @@ ENV = os.getenv("KRAKEN_ENV", "demo").strip().lower() or "demo"
 API_KEY = os.getenv("KRAKEN_API_KEY", "").strip()
 API_SECRET = os.getenv("KRAKEN_API_SECRET", "").strip()
 CONFIRM_LIVE = os.getenv("CONFIRMO_DINERO_REAL", "no").strip().lower()
-SYMBOLS = ["PF_XBTUSD", "PF_ETHUSD"]
-RISK_PER_TRADE = 0.02
+SYMBOLS = ["PF_XBTUSD"]
+RISK_PER_TRADE = 0.01
+MAX_RISK_MIN_SIZE = 0.03  # si el tamaño mínimo de Kraken obliga a arriesgar más, hasta este límite
 MAX_LEVERAGE = 3
 MAX_DAILY_LOSS = 0.06
 
 TIMEFRAME, CANDLE_MS = "1h", 3600 * 1000
-EMA_FAST, EMA_SLOW, EMA_TREND, ATR_LEN = 21, 55, 200, 14
-SL_ATR, TP_ATR = 2.0, 3.0
+EMA_FAST, EMA_SLOW, EMA_TREND, ATR_LEN = st.EMA_FAST, st.EMA_SLOW, st.EMA_TREND, st.ATR_LEN
+SL_ATR, TP_ATR = st.SL_ATR, st.TP_ATR
 
 BASES = {"demo": "https://demo-futures.kraken.com", "live": "https://futures.kraken.com"}
 CHARTS_URL = "https://futures.kraken.com/api/charts/v1"
@@ -191,8 +192,12 @@ class Bot:
         size = min(equity * RISK_PER_TRADE / dist, equity * MAX_LEVERAGE / len(SYMBOLS) / price)
         size = self.rsize(sym, size)
         if size <= 0:
-            self.event(f"{NAMES[sym]}: saldo insuficiente para abrir con el riesgo fijado")
-            return
+            min_size = 10 ** -self.specs[sym][0]
+            if min_size * dist <= equity * MAX_RISK_MIN_SIZE and min_size * price <= equity * MAX_LEVERAGE:
+                size = min_size  # con poco saldo, se usa el mínimo de Kraken aunque el riesgo pase del 1 %
+            else:
+                self.event(f"{NAMES[sym]}: saldo insuficiente para abrir con el riesgo fijado")
+                return
         self.k.order(orderType="mkt", symbol=sym, side="buy" if side == "long" else "sell", size=size)
         time.sleep(3)
         pos = self.k.positions().get(sym)
