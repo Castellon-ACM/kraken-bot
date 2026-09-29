@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T14:38:35+00:00",
+  "updated": "2026-09-29T15:01:43+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -16,6 +16,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-09-29T15:01:42+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83734.0,
+          "trend": "alcista",
+          "regime": "lateral",
+          "adx": 17.8,
+          "rsi": 49.9,
+          "decision": "Mercado lateral (ADX 18), pero el precio no está en un extremo (RSI 50)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2710.5,
+          "trend": "alcista",
+          "regime": "lateral",
+          "adx": 19.2,
+          "rsi": 55.6,
+          "decision": "Mercado lateral (ADX 19), pero el precio no está en un extremo (RSI 56)"
+        }
+      ]
+    },
     {
       "t": "2026-09-29T14:38:35+00:00",
       "trading": true,

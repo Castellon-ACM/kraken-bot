@@ -4,8 +4,8 @@
   "initial_equity": 7.32,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1790686800000,
-    "PF_ETHUSD": 1790686800000
+    "PF_XBTUSD": 1790690400000,
+    "PF_ETHUSD": 1790690400000
   },
   "open": {},
   "handled_close_all": 0,
@@ -19,6 +19,30 @@
   "leverage_set": true,
   "last_equity": 7.32,
   "runs": [
+    {
+      "t": "2026-09-29T15:01:42+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83734.0,
+          "trend": "alcista",
+          "regime": "lateral",
+          "adx": 17.8,
+          "rsi": 49.9,
+          "decision": "Mercado lateral (ADX 18), pero el precio no está en un extremo (RSI 50)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2710.5,
+          "trend": "alcista",
+          "regime": "lateral",
+          "adx": 19.2,
+          "rsi": 55.6,
+          "decision": "Mercado lateral (ADX 19), pero el precio no está en un extremo (RSI 56)"
+        }
+      ]
+    },
     {
       "t": "2026-09-29T14:38:35+00:00",
       "trading": true,
@@ -100,322 +124,262 @@
       ]
     }
   ],
-  "backtest_done": 2,
+  "backtest_done": 3,
   "backtest": {
-    "generated": 1790692730770,
-    "tested": 324,
-    "current": {
-      "coins": "BTC+ETH",
-      "fast": 21,
-      "slow": 55,
-      "trend": 200,
-      "sl": 2.0,
-      "tp": 3.0,
-      "year1": {
-        "n": 206,
-        "win": 32.0,
-        "net_r": -45.24,
-        "pct": -90.5,
-        "streak": 9
-      },
-      "year2": {
-        "n": 178,
-        "win": 44.4,
-        "net_r": 13.99,
-        "pct": 28.0,
-        "streak": 6
-      }
-    },
-    "best_year1": [
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 0,
-        "sl": 2.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 86,
-          "win": 39.5,
-          "net_r": 16.46,
-          "pct": 32.9,
-          "streak": 10
+    "generated": 1790694114756,
+    "combos": {
+      "BTC": {
+        "nueva": {
+          "year1": {
+            "n": 172,
+            "win": 41.3,
+            "net_r": -17.04,
+            "pct": -34.1,
+            "streak": 9
+          },
+          "year2": {
+            "n": 186,
+            "win": 42.5,
+            "net_r": -11.54,
+            "pct": -23.1,
+            "streak": 18
+          }
         },
-        "year2": {
-          "n": 92,
-          "win": 23.9,
-          "net_r": -28.27,
-          "pct": -56.5,
-          "streak": 12
+        "anterior": {
+          "year1": {
+            "n": 102,
+            "win": 32.4,
+            "net_r": -22.95,
+            "pct": -45.9,
+            "streak": 9
+          },
+          "year2": {
+            "n": 78,
+            "win": 47.4,
+            "net_r": 11.44,
+            "pct": 22.9,
+            "streak": 6
+          }
+        },
+        "por_modo": {
+          "tendencia": {
+            "year1": {
+              "n": 25,
+              "win": 32.0,
+              "net_r": -7.21,
+              "pct": -14.4,
+              "streak": 5
+            },
+            "year2": {
+              "n": 23,
+              "win": 47.8,
+              "net_r": 2.77,
+              "pct": 5.5,
+              "streak": 4
+            }
+          },
+          "ruptura": {
+            "year1": {
+              "n": 117,
+              "win": 41.9,
+              "net_r": -4.06,
+              "pct": -8.1,
+              "streak": 5
+            },
+            "year2": {
+              "n": 134,
+              "win": 41.0,
+              "net_r": -7.68,
+              "pct": -15.4,
+              "streak": 17
+            }
+          },
+          "rebote": {
+            "year1": {
+              "n": 30,
+              "win": 46.7,
+              "net_r": -5.77,
+              "pct": -11.5,
+              "streak": 4
+            },
+            "year2": {
+              "n": 29,
+              "win": 44.8,
+              "net_r": -6.63,
+              "pct": -13.3,
+              "streak": 8
+            }
+          }
         }
       },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 100,
-        "sl": 2.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 86,
-          "win": 39.5,
-          "net_r": 16.46,
-          "pct": 32.9,
-          "streak": 10
+      "ETH": {
+        "nueva": {
+          "year1": {
+            "n": 173,
+            "win": 46.2,
+            "net_r": 11.04,
+            "pct": 22.1,
+            "streak": 10
+          },
+          "year2": {
+            "n": 185,
+            "win": 41.1,
+            "net_r": -13.76,
+            "pct": -27.5,
+            "streak": 9
+          }
         },
-        "year2": {
-          "n": 92,
-          "win": 23.9,
-          "net_r": -28.27,
-          "pct": -56.5,
-          "streak": 12
+        "anterior": {
+          "year1": {
+            "n": 104,
+            "win": 31.7,
+            "net_r": -22.29,
+            "pct": -44.6,
+            "streak": 7
+          },
+          "year2": {
+            "n": 100,
+            "win": 42.0,
+            "net_r": 2.55,
+            "pct": 5.1,
+            "streak": 5
+          }
+        },
+        "por_modo": {
+          "tendencia": {
+            "year1": {
+              "n": 27,
+              "win": 44.4,
+              "net_r": 1.67,
+              "pct": 3.3,
+              "streak": 4
+            },
+            "year2": {
+              "n": 37,
+              "win": 32.4,
+              "net_r": -8.06,
+              "pct": -16.1,
+              "streak": 5
+            }
+          },
+          "ruptura": {
+            "year1": {
+              "n": 118,
+              "win": 45.8,
+              "net_r": 11.43,
+              "pct": 22.9,
+              "streak": 8
+            },
+            "year2": {
+              "n": 114,
+              "win": 40.4,
+              "net_r": -4.66,
+              "pct": -9.3,
+              "streak": 9
+            }
+          },
+          "rebote": {
+            "year1": {
+              "n": 28,
+              "win": 50.0,
+              "net_r": -2.06,
+              "pct": -4.1,
+              "streak": 6
+            },
+            "year2": {
+              "n": 34,
+              "win": 52.9,
+              "net_r": -1.04,
+              "pct": -2.1,
+              "streak": 3
+            }
+          }
         }
       },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 0,
-        "sl": 1.5,
-        "tp": 4.5,
-        "year1": {
-          "n": 89,
-          "win": 32.6,
-          "net_r": 14.65,
-          "pct": 29.3,
-          "streak": 10
+      "BTC+ETH": {
+        "nueva": {
+          "year1": {
+            "n": 345,
+            "win": 43.8,
+            "net_r": -6.0,
+            "pct": -12.0,
+            "streak": 10
+          },
+          "year2": {
+            "n": 371,
+            "win": 41.8,
+            "net_r": -25.3,
+            "pct": -50.6,
+            "streak": 18
+          }
         },
-        "year2": {
-          "n": 102,
-          "win": 22.5,
-          "net_r": -24.44,
-          "pct": -48.9,
-          "streak": 13
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 100,
-        "sl": 1.5,
-        "tp": 4.5,
-        "year1": {
-          "n": 89,
-          "win": 32.6,
-          "net_r": 14.65,
-          "pct": 29.3,
-          "streak": 10
+        "anterior": {
+          "year1": {
+            "n": 206,
+            "win": 32.0,
+            "net_r": -45.24,
+            "pct": -90.5,
+            "streak": 9
+          },
+          "year2": {
+            "n": 178,
+            "win": 44.4,
+            "net_r": 13.99,
+            "pct": 28.0,
+            "streak": 6
+          }
         },
-        "year2": {
-          "n": 102,
-          "win": 22.5,
-          "net_r": -24.44,
-          "pct": -48.9,
-          "streak": 13
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 200,
-        "sl": 2.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 73,
-          "win": 39.7,
-          "net_r": 13.55,
-          "pct": 27.1,
-          "streak": 8
-        },
-        "year2": {
-          "n": 77,
-          "win": 26.0,
-          "net_r": -19.01,
-          "pct": -38.0,
-          "streak": 11
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 200,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 67,
-          "win": 47.8,
-          "net_r": 11.82,
-          "pct": 23.6,
-          "streak": 5
-        },
-        "year2": {
-          "n": 67,
-          "win": 31.3,
-          "net_r": -13.66,
-          "pct": -27.3,
-          "streak": 9
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 0,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 79,
-          "win": 45.6,
-          "net_r": 10.99,
-          "pct": 22.0,
-          "streak": 7
-        },
-        "year2": {
-          "n": 78,
-          "win": 32.1,
-          "net_r": -14.23,
-          "pct": -28.5,
-          "streak": 10
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 100,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 79,
-          "win": 45.6,
-          "net_r": 10.99,
-          "pct": 22.0,
-          "streak": 7
-        },
-        "year2": {
-          "n": 78,
-          "win": 32.1,
-          "net_r": -14.23,
-          "pct": -28.5,
-          "streak": 10
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 34,
-        "slow": 89,
-        "trend": 200,
-        "sl": 1.5,
-        "tp": 4.5,
-        "year1": {
-          "n": 75,
-          "win": 32.0,
-          "net_r": 10.31,
-          "pct": 20.6,
-          "streak": 8
-        },
-        "year2": {
-          "n": 83,
-          "win": 24.1,
-          "net_r": -15.17,
-          "pct": -30.3,
-          "streak": 12
-        }
-      },
-      {
-        "coins": "BTC+ETH",
-        "fast": 12,
-        "slow": 26,
-        "trend": 0,
-        "sl": 2.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 397,
-          "win": 31.0,
-          "net_r": 9.38,
-          "pct": 18.8,
-          "streak": 12
-        },
-        "year2": {
-          "n": 405,
-          "win": 27.9,
-          "net_r": -15.61,
-          "pct": -31.2,
-          "streak": 15
-        }
-      }
-    ],
-    "robust": [
-      {
-        "coins": "BTC",
-        "fast": 21,
-        "slow": 55,
-        "trend": 100,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 111,
-          "win": 40.5,
-          "net_r": 8.19,
-          "pct": 16.4,
-          "streak": 12
-        },
-        "year2": {
-          "n": 88,
-          "win": 42.0,
-          "net_r": 12.45,
-          "pct": 24.9,
-          "streak": 9
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 21,
-        "slow": 55,
-        "trend": 0,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 114,
-          "win": 38.6,
-          "net_r": 6.21,
-          "pct": 12.4,
-          "streak": 12
-        },
-        "year2": {
-          "n": 96,
-          "win": 39.6,
-          "net_r": 10.33,
-          "pct": 20.7,
-          "streak": 9
-        }
-      },
-      {
-        "coins": "BTC",
-        "fast": 21,
-        "slow": 55,
-        "trend": 200,
-        "sl": 3.0,
-        "tp": 4.5,
-        "year1": {
-          "n": 85,
-          "win": 37.6,
-          "net_r": 3.3,
-          "pct": 6.6,
-          "streak": 10
-        },
-        "year2": {
-          "n": 69,
-          "win": 46.4,
-          "net_r": 14.37,
-          "pct": 28.7,
-          "streak": 10
+        "por_modo": {
+          "tendencia": {
+            "year1": {
+              "n": 52,
+              "win": 38.5,
+              "net_r": -5.54,
+              "pct": -11.1,
+              "streak": 5
+            },
+            "year2": {
+              "n": 60,
+              "win": 38.3,
+              "net_r": -5.29,
+              "pct": -10.6,
+              "streak": 5
+            }
+          },
+          "ruptura": {
+            "year1": {
+              "n": 235,
+              "win": 43.8,
+              "net_r": 7.37,
+              "pct": 14.7,
+              "streak": 8
+            },
+            "year2": {
+              "n": 248,
+              "win": 40.7,
+              "net_r": -12.34,
+              "pct": -24.7,
+              "streak": 17
+            }
+          },
+          "rebote": {
+            "year1": {
+              "n": 58,
+              "win": 48.3,
+              "net_r": -7.83,
+              "pct": -15.7,
+              "streak": 6
+            },
+            "year2": {
+              "n": 63,
+              "win": 49.2,
+              "net_r": -7.67,
+              "pct": -15.3,
+              "streak": 8
+            }
+          }
         }
       }
-    ],
-    "robust_count": 3
+    }
   }
 }
