@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-29T12:48:53+00:00",
+  "updated": "2026-09-29T12:49:28+00:00",
   "env": "live",
-  "active": false,
-  "trading": false,
+  "active": true,
+  "trading": true,
   "halted_today": false,
   "equity": 7.32,
   "day_pnl": 0.0,
