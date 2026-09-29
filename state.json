@@ -20,6 +20,21 @@
   "last_equity": 7.32,
   "runs": [
     {
+      "t": "2026-09-29T15:25:38+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83734.0,
+          "trend": "bajista",
+          "regime": "tendencia",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
+        }
+      ]
+    },
+    {
       "t": "2026-09-29T15:15:23+00:00",
       "trading": true,
       "items": [
@@ -139,262 +154,978 @@
       ]
     }
   ],
-  "backtest_done": 3,
+  "backtest_done": 4,
   "backtest": {
-    "generated": 1790694114756,
-    "combos": {
+    "generated": 1790695548892,
+    "tested": 972,
+    "periodo_A": [
+      "2020-09-18",
+      "2024-04-30",
+      3.6
+    ],
+    "periodo_B": [
+      "2024-04-30",
+      "2026-09-28",
+      2.4
+    ],
+    "velas": {
+      "BTC": 2407,
+      "ETH": 2407
+    },
+    "comprar_y_mantener": {
       "BTC": {
-        "nueva": {
-          "year1": {
-            "n": 172,
-            "win": 41.3,
-            "net_r": -17.04,
-            "pct": -34.1,
-            "streak": 9
-          },
-          "year2": {
-            "n": 186,
-            "win": 42.5,
-            "net_r": -11.54,
-            "pct": -23.1,
-            "streak": 18
-          }
+        "A": {
+          "total_pct": 454.9,
+          "year_pct": 60.6,
+          "max_drop_pct": -76.7
         },
-        "anterior": {
-          "year1": {
-            "n": 102,
-            "win": 32.4,
-            "net_r": -22.95,
-            "pct": -45.9,
-            "streak": 9
-          },
-          "year2": {
-            "n": 78,
-            "win": 47.4,
-            "net_r": 11.44,
-            "pct": 22.9,
-            "streak": 6
-          }
-        },
-        "por_modo": {
-          "tendencia": {
-            "year1": {
-              "n": 25,
-              "win": 32.0,
-              "net_r": -7.21,
-              "pct": -14.4,
-              "streak": 5
-            },
-            "year2": {
-              "n": 23,
-              "win": 47.8,
-              "net_r": 2.77,
-              "pct": 5.5,
-              "streak": 4
-            }
-          },
-          "ruptura": {
-            "year1": {
-              "n": 117,
-              "win": 41.9,
-              "net_r": -4.06,
-              "pct": -8.1,
-              "streak": 5
-            },
-            "year2": {
-              "n": 134,
-              "win": 41.0,
-              "net_r": -7.68,
-              "pct": -15.4,
-              "streak": 17
-            }
-          },
-          "rebote": {
-            "year1": {
-              "n": 30,
-              "win": 46.7,
-              "net_r": -5.77,
-              "pct": -11.5,
-              "streak": 4
-            },
-            "year2": {
-              "n": 29,
-              "win": 44.8,
-              "net_r": -6.63,
-              "pct": -13.3,
-              "streak": 8
-            }
-          }
+        "B": {
+          "total_pct": 43.2,
+          "year_pct": 16.1,
+          "max_drop_pct": -53.1
         }
       },
       "ETH": {
-        "nueva": {
-          "year1": {
-            "n": 173,
-            "win": 46.2,
-            "net_r": 11.04,
-            "pct": 22.1,
-            "streak": 10
-          },
-          "year2": {
-            "n": 185,
-            "win": 41.1,
-            "net_r": -13.76,
-            "pct": -27.5,
-            "streak": 9
-          }
+        "A": {
+          "total_pct": 683.6,
+          "year_pct": 76.7,
+          "max_drop_pct": -79.3
         },
-        "anterior": {
-          "year1": {
-            "n": 104,
-            "win": 31.7,
-            "net_r": -22.29,
-            "pct": -44.6,
-            "streak": 7
-          },
-          "year2": {
-            "n": 100,
-            "win": 42.0,
-            "net_r": 2.55,
-            "pct": 5.1,
-            "streak": 5
-          }
-        },
-        "por_modo": {
-          "tendencia": {
-            "year1": {
-              "n": 27,
-              "win": 44.4,
-              "net_r": 1.67,
-              "pct": 3.3,
-              "streak": 4
-            },
-            "year2": {
-              "n": 37,
-              "win": 32.4,
-              "net_r": -8.06,
-              "pct": -16.1,
-              "streak": 5
-            }
-          },
-          "ruptura": {
-            "year1": {
-              "n": 118,
-              "win": 45.8,
-              "net_r": 11.43,
-              "pct": 22.9,
-              "streak": 8
-            },
-            "year2": {
-              "n": 114,
-              "win": 40.4,
-              "net_r": -4.66,
-              "pct": -9.3,
-              "streak": 9
-            }
-          },
-          "rebote": {
-            "year1": {
-              "n": 28,
-              "win": 50.0,
-              "net_r": -2.06,
-              "pct": -4.1,
-              "streak": 6
-            },
-            "year2": {
-              "n": 34,
-              "win": 52.9,
-              "net_r": -1.04,
-              "pct": -2.1,
-              "streak": 3
-            }
-          }
-        }
-      },
-      "BTC+ETH": {
-        "nueva": {
-          "year1": {
-            "n": 345,
-            "win": 43.8,
-            "net_r": -6.0,
-            "pct": -12.0,
-            "streak": 10
-          },
-          "year2": {
-            "n": 371,
-            "win": 41.8,
-            "net_r": -25.3,
-            "pct": -50.6,
-            "streak": 18
-          }
-        },
-        "anterior": {
-          "year1": {
-            "n": 206,
-            "win": 32.0,
-            "net_r": -45.24,
-            "pct": -90.5,
-            "streak": 9
-          },
-          "year2": {
-            "n": 178,
-            "win": 44.4,
-            "net_r": 13.99,
-            "pct": 28.0,
-            "streak": 6
-          }
-        },
-        "por_modo": {
-          "tendencia": {
-            "year1": {
-              "n": 52,
-              "win": 38.5,
-              "net_r": -5.54,
-              "pct": -11.1,
-              "streak": 5
-            },
-            "year2": {
-              "n": 60,
-              "win": 38.3,
-              "net_r": -5.29,
-              "pct": -10.6,
-              "streak": 5
-            }
-          },
-          "ruptura": {
-            "year1": {
-              "n": 235,
-              "win": 43.8,
-              "net_r": 7.37,
-              "pct": 14.7,
-              "streak": 8
-            },
-            "year2": {
-              "n": 248,
-              "win": 40.7,
-              "net_r": -12.34,
-              "pct": -24.7,
-              "streak": 17
-            }
-          },
-          "rebote": {
-            "year1": {
-              "n": 58,
-              "win": 48.3,
-              "net_r": -7.83,
-              "pct": -15.7,
-              "streak": 6
-            },
-            "year2": {
-              "n": 63,
-              "win": 49.2,
-              "net_r": -7.67,
-              "pct": -15.3,
-              "streak": 8
-            }
-          }
+        "B": {
+          "total_pct": -9.5,
+          "year_pct": -4.0,
+          "max_drop_pct": -67.6
         }
       }
-    }
+    },
+    "mejor_por_tipo_elegida_en_A": {
+      "cruce": [
+        {
+          "kind": "cruce",
+          "p": {
+            "fast": 20,
+            "slow": 50,
+            "filter": 100,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 17,
+            "win": 52.9,
+            "r": 150.9,
+            "r_year": 41.72,
+            "pct_year": 41.7,
+            "dd_r": -4.2,
+            "streak": 4
+          },
+          "B": {
+            "n": 11,
+            "win": 27.3,
+            "r": -3.5,
+            "r_year": -1.44,
+            "pct_year": -1.4,
+            "dd_r": -5.9,
+            "streak": 4
+          },
+          "label": "cruce {'fast': 20, 'slow': 50, 'filter': 100, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "cruce",
+          "p": {
+            "fast": 20,
+            "slow": 50,
+            "filter": 100,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "both",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 23,
+            "win": 43.5,
+            "r": 150.3,
+            "r_year": 41.53,
+            "pct_year": 41.5,
+            "dd_r": -4.4,
+            "streak": 6
+          },
+          "B": {
+            "n": 18,
+            "win": 27.8,
+            "r": -5.1,
+            "r_year": -2.09,
+            "pct_year": -2.1,
+            "dd_r": -10.0,
+            "streak": 7
+          },
+          "label": "cruce {'fast': 20, 'slow': 50, 'filter': 100, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+        },
+        {
+          "kind": "cruce",
+          "p": {
+            "fast": 20,
+            "slow": 50,
+            "filter": 0,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 20,
+            "win": 45.0,
+            "r": 147.8,
+            "r_year": 40.85,
+            "pct_year": 40.8,
+            "dd_r": -7.4,
+            "streak": 7
+          },
+          "B": {
+            "n": 17,
+            "win": 23.5,
+            "r": -3.0,
+            "r_year": -1.25,
+            "pct_year": -1.2,
+            "dd_r": -10.3,
+            "streak": 7
+          },
+          "label": "cruce {'fast': 20, 'slow': 50, 'filter': 0, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        }
+      ],
+      "ruptura": [
+        {
+          "kind": "ruptura",
+          "p": {
+            "n": 20,
+            "exit": 10,
+            "filter": 0,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 34,
+            "win": 50.0,
+            "r": 109.9,
+            "r_year": 30.38,
+            "pct_year": 30.4,
+            "dd_r": -8.7,
+            "streak": 7
+          },
+          "B": {
+            "n": 32,
+            "win": 31.2,
+            "r": -0.5,
+            "r_year": -0.22,
+            "pct_year": -0.2,
+            "dd_r": -10.1,
+            "streak": 10
+          },
+          "label": "ruptura {'n': 20, 'exit': 10, 'filter': 0, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "ruptura",
+          "p": {
+            "n": 20,
+            "exit": 10,
+            "filter": 0,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "both",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 62,
+            "win": 37.1,
+            "r": 102.4,
+            "r_year": 28.31,
+            "pct_year": 28.3,
+            "dd_r": -11.9,
+            "streak": 12
+          },
+          "B": {
+            "n": 52,
+            "win": 36.5,
+            "r": 3.9,
+            "r_year": 1.64,
+            "pct_year": 1.6,
+            "dd_r": -8.9,
+            "streak": 7
+          },
+          "label": "ruptura {'n': 20, 'exit': 10, 'filter': 0, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+        },
+        {
+          "kind": "ruptura",
+          "p": {
+            "n": 20,
+            "exit": 10,
+            "filter": 200,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 25,
+            "win": 52.0,
+            "r": 101.4,
+            "r_year": 28.03,
+            "pct_year": 28.0,
+            "dd_r": -6.6,
+            "streak": 6
+          },
+          "B": {
+            "n": 21,
+            "win": 38.1,
+            "r": 4.3,
+            "r_year": 1.8,
+            "pct_year": 1.8,
+            "dd_r": -4.2,
+            "streak": 5
+          },
+          "label": "ruptura {'n': 20, 'exit': 10, 'filter': 200, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        }
+      ],
+      "rebote": [
+        {
+          "kind": "rebote",
+          "p": {
+            "rsi_lo": 35,
+            "sl": 3,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 31,
+            "win": 74.2,
+            "r": 4.3,
+            "r_year": 1.2,
+            "pct_year": 1.2,
+            "dd_r": -4.4,
+            "streak": 3
+          },
+          "B": {
+            "n": 29,
+            "win": 51.7,
+            "r": -5.1,
+            "r_year": -2.13,
+            "pct_year": -2.1,
+            "dd_r": -7.3,
+            "streak": 6
+          },
+          "label": "rebote {'rsi_lo': 35, 'sl': 3, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "rebote",
+          "p": {
+            "rsi_lo": 35,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 32,
+            "win": 62.5,
+            "r": 4.3,
+            "r_year": 1.18,
+            "pct_year": 1.2,
+            "dd_r": -9.1,
+            "streak": 5
+          },
+          "B": {
+            "n": 31,
+            "win": 51.6,
+            "r": -1.2,
+            "r_year": -0.49,
+            "pct_year": -0.5,
+            "dd_r": -8.8,
+            "streak": 7
+          },
+          "label": "rebote {'rsi_lo': 35, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "rebote",
+          "p": {
+            "rsi_lo": 35,
+            "sl": 1.5,
+            "tp": 3
+          },
+          "sides": "both",
+          "coins": "ETH",
+          "A": {
+            "n": 56,
+            "win": 46.4,
+            "r": 4.0,
+            "r_year": 1.11,
+            "pct_year": 1.1,
+            "dd_r": -6.5,
+            "streak": 3
+          },
+          "B": {
+            "n": 36,
+            "win": 36.1,
+            "r": -6.3,
+            "r_year": -2.61,
+            "pct_year": -2.6,
+            "dd_r": -10.1,
+            "streak": 8
+          },
+          "label": "rebote {'rsi_lo': 35, 'sl': 1.5, 'tp': 3} largos+cortos ETH"
+        }
+      ],
+      "regimen": [
+        {
+          "kind": "regimen",
+          "p": {
+            "lo": 20,
+            "hi": 25,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 14,
+            "win": 64.3,
+            "r": 116.5,
+            "r_year": 32.19,
+            "pct_year": 32.2,
+            "dd_r": -2.6,
+            "streak": 2
+          },
+          "B": {
+            "n": 11,
+            "win": 45.5,
+            "r": 1.7,
+            "r_year": 0.68,
+            "pct_year": 0.7,
+            "dd_r": -2.1,
+            "streak": 2
+          },
+          "label": "regimen {'lo': 20, 'hi': 25, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "regimen",
+          "p": {
+            "lo": 25,
+            "hi": 30,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 16,
+            "win": 56.2,
+            "r": 108.1,
+            "r_year": 29.89,
+            "pct_year": 29.9,
+            "dd_r": -4.4,
+            "streak": 5
+          },
+          "B": {
+            "n": 10,
+            "win": 40.0,
+            "r": -2.3,
+            "r_year": -0.94,
+            "pct_year": -0.9,
+            "dd_r": -2.6,
+            "streak": 3
+          },
+          "label": "regimen {'lo': 25, 'hi': 30, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "regimen",
+          "p": {
+            "lo": 20,
+            "hi": 30,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 13,
+            "win": 46.2,
+            "r": 104.8,
+            "r_year": 28.97,
+            "pct_year": 29.0,
+            "dd_r": -4.4,
+            "streak": 5
+          },
+          "B": {
+            "n": 7,
+            "win": 42.9,
+            "r": -1.2,
+            "r_year": -0.51,
+            "pct_year": -0.5,
+            "dd_r": -1.8,
+            "streak": 2
+          },
+          "label": "regimen {'lo': 20, 'hi': 30, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        }
+      ],
+      "votos": [
+        {
+          "kind": "votos",
+          "p": {
+            "need": 3,
+            "with_rsi": true,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 23,
+            "win": 56.5,
+            "r": 148.7,
+            "r_year": 41.09,
+            "pct_year": 41.1,
+            "dd_r": -5.3,
+            "streak": 5
+          },
+          "B": {
+            "n": 21,
+            "win": 57.1,
+            "r": 11.9,
+            "r_year": 4.95,
+            "pct_year": 4.9,
+            "dd_r": -3.3,
+            "streak": 3
+          },
+          "label": "votos {'need': 3, 'with_rsi': True, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "votos",
+          "p": {
+            "need": 2,
+            "with_rsi": false,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "long",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 26,
+            "win": 53.8,
+            "r": 146.6,
+            "r_year": 40.53,
+            "pct_year": 40.5,
+            "dd_r": -5.3,
+            "streak": 5
+          },
+          "B": {
+            "n": 25,
+            "win": 48.0,
+            "r": 9.5,
+            "r_year": 3.95,
+            "pct_year": 3.9,
+            "dd_r": -5.5,
+            "streak": 4
+          },
+          "label": "votos {'need': 2, 'with_rsi': False, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+        },
+        {
+          "kind": "votos",
+          "p": {
+            "need": 3,
+            "with_rsi": true,
+            "sl": 2,
+            "tp": 0
+          },
+          "sides": "both",
+          "coins": "BTC+ETH",
+          "A": {
+            "n": 42,
+            "win": 40.5,
+            "r": 136.5,
+            "r_year": 37.74,
+            "pct_year": 37.7,
+            "dd_r": -14.2,
+            "streak": 9
+          },
+          "B": {
+            "n": 32,
+            "win": 46.9,
+            "r": 10.8,
+            "r_year": 4.47,
+            "pct_year": 4.5,
+            "dd_r": -6.0,
+            "streak": 4
+          },
+          "label": "votos {'need': 3, 'with_rsi': True, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+        }
+      ]
+    },
+    "robustas": [
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 0,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 33,
+          "win": 42.4,
+          "r": 90.5,
+          "r_year": 25.02,
+          "pct_year": 25.0,
+          "dd_r": -8.6,
+          "streak": 9
+        },
+        "B": {
+          "n": 23,
+          "win": 47.8,
+          "r": 12.4,
+          "r_year": 5.13,
+          "pct_year": 5.1,
+          "dd_r": -2.1,
+          "streak": 3
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 0, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "votos",
+        "p": {
+          "need": 3,
+          "with_rsi": false,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 16,
+          "win": 43.8,
+          "r": 116.4,
+          "r_year": 32.18,
+          "pct_year": 32.2,
+          "dd_r": -6.2,
+          "streak": 7
+        },
+        "B": {
+          "n": 11,
+          "win": 54.5,
+          "r": 12.0,
+          "r_year": 4.98,
+          "pct_year": 5.0,
+          "dd_r": -2.2,
+          "streak": 2
+        },
+        "label": "votos {'need': 3, 'with_rsi': False, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "votos",
+        "p": {
+          "need": 4,
+          "with_rsi": true,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 16,
+          "win": 43.8,
+          "r": 116.4,
+          "r_year": 32.18,
+          "pct_year": 32.2,
+          "dd_r": -6.2,
+          "streak": 7
+        },
+        "B": {
+          "n": 11,
+          "win": 54.5,
+          "r": 12.0,
+          "r_year": 4.98,
+          "pct_year": 5.0,
+          "dd_r": -2.2,
+          "streak": 2
+        },
+        "label": "votos {'need': 4, 'with_rsi': True, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "votos",
+        "p": {
+          "need": 3,
+          "with_rsi": true,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 23,
+          "win": 56.5,
+          "r": 148.7,
+          "r_year": 41.09,
+          "pct_year": 41.1,
+          "dd_r": -5.3,
+          "streak": 5
+        },
+        "B": {
+          "n": 21,
+          "win": 57.1,
+          "r": 11.9,
+          "r_year": 4.95,
+          "pct_year": 4.9,
+          "dd_r": -3.3,
+          "streak": 3
+        },
+        "label": "votos {'need': 3, 'with_rsi': True, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 200,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 32,
+          "win": 37.5,
+          "r": 85.8,
+          "r_year": 23.72,
+          "pct_year": 23.7,
+          "dd_r": -13.3,
+          "streak": 15
+        },
+        "B": {
+          "n": 21,
+          "win": 52.4,
+          "r": 11.9,
+          "r_year": 4.92,
+          "pct_year": 4.9,
+          "dd_r": -2.1,
+          "streak": 2
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 200, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 0,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 20,
+          "win": 45.0,
+          "r": 91.6,
+          "r_year": 25.33,
+          "pct_year": 25.3,
+          "dd_r": -5.0,
+          "streak": 5
+        },
+        "B": {
+          "n": 13,
+          "win": 53.8,
+          "r": 11.4,
+          "r_year": 4.71,
+          "pct_year": 4.7,
+          "dd_r": -2.6,
+          "streak": 3
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 0, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 20,
+          "exit": 10,
+          "filter": 200,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 50,
+          "win": 36.0,
+          "r": 96.1,
+          "r_year": 26.56,
+          "pct_year": 26.6,
+          "dd_r": -13.4,
+          "streak": 10
+        },
+        "B": {
+          "n": 36,
+          "win": 44.4,
+          "r": 11.1,
+          "r_year": 4.59,
+          "pct_year": 4.6,
+          "dd_r": -5.1,
+          "streak": 5
+        },
+        "label": "ruptura {'n': 20, 'exit': 10, 'filter': 200, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 0,
+          "sl": 3,
+          "tp": 6
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 51,
+          "win": 45.1,
+          "r": 16.2,
+          "r_year": 4.48,
+          "pct_year": 4.5,
+          "dd_r": -9.4,
+          "streak": 11
+        },
+        "B": {
+          "n": 27,
+          "win": 51.9,
+          "r": 11.7,
+          "r_year": 4.85,
+          "pct_year": 4.9,
+          "dd_r": -2.3,
+          "streak": 3
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 0, 'sl': 3, 'tp': 6} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "votos",
+        "p": {
+          "need": 3,
+          "with_rsi": true,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 42,
+          "win": 40.5,
+          "r": 136.5,
+          "r_year": 37.74,
+          "pct_year": 37.7,
+          "dd_r": -14.2,
+          "streak": 9
+        },
+        "B": {
+          "n": 32,
+          "win": 46.9,
+          "r": 10.8,
+          "r_year": 4.47,
+          "pct_year": 4.5,
+          "dd_r": -6.0,
+          "streak": 4
+        },
+        "label": "votos {'need': 3, 'with_rsi': True, 'sl': 2, 'tp': 0} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 200,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 19,
+          "win": 36.8,
+          "r": 86.9,
+          "r_year": 24.02,
+          "pct_year": 24.0,
+          "dd_r": -9.3,
+          "streak": 10
+        },
+        "B": {
+          "n": 11,
+          "win": 54.5,
+          "r": 10.3,
+          "r_year": 4.29,
+          "pct_year": 4.3,
+          "dd_r": -1.8,
+          "streak": 2
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 200, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "cruce",
+        "p": {
+          "fast": 10,
+          "slow": 30,
+          "filter": 0,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 40,
+          "win": 40.0,
+          "r": 118.9,
+          "r_year": 32.86,
+          "pct_year": 32.9,
+          "dd_r": -11.8,
+          "streak": 8
+        },
+        "B": {
+          "n": 30,
+          "win": 30.0,
+          "r": 10.1,
+          "r_year": 4.17,
+          "pct_year": 4.2,
+          "dd_r": -8.1,
+          "streak": 9
+        },
+        "label": "cruce {'fast': 10, 'slow': 30, 'filter': 0, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 20,
+          "exit": 10,
+          "filter": 200,
+          "sl": 2,
+          "tp": 6
+        },
+        "sides": "both",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 72,
+          "win": 40.3,
+          "r": 30.0,
+          "r_year": 8.3,
+          "pct_year": 8.3,
+          "dd_r": -13.4,
+          "streak": 10
+        },
+        "B": {
+          "n": 43,
+          "win": 39.5,
+          "r": 9.9,
+          "r_year": 4.11,
+          "pct_year": 4.1,
+          "dd_r": -6.4,
+          "streak": 5
+        },
+        "label": "ruptura {'n': 20, 'exit': 10, 'filter': 200, 'sl': 2, 'tp': 6} largos+cortos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 0,
+          "sl": 2,
+          "tp": 6
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 42,
+          "win": 35.7,
+          "r": 14.7,
+          "r_year": 4.05,
+          "pct_year": 4.1,
+          "dd_r": -5.9,
+          "streak": 7
+        },
+        "B": {
+          "n": 17,
+          "win": 52.9,
+          "r": 14.3,
+          "r_year": 5.91,
+          "pct_year": 5.9,
+          "dd_r": -3.2,
+          "streak": 3
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 0, 'sl': 2, 'tp': 6} solo largos BTC+ETH"
+      },
+      {
+        "kind": "ruptura",
+        "p": {
+          "n": 55,
+          "exit": 20,
+          "filter": 0,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "both",
+        "coins": "ETH",
+        "A": {
+          "n": 15,
+          "win": 40.0,
+          "r": 49.9,
+          "r_year": 13.79,
+          "pct_year": 13.8,
+          "dd_r": -5.0,
+          "streak": 4
+        },
+        "B": {
+          "n": 10,
+          "win": 60.0,
+          "r": 9.5,
+          "r_year": 3.96,
+          "pct_year": 4.0,
+          "dd_r": -1.1,
+          "streak": 1
+        },
+        "label": "ruptura {'n': 55, 'exit': 20, 'filter': 0, 'sl': 2, 'tp': 0} largos+cortos ETH"
+      },
+      {
+        "kind": "votos",
+        "p": {
+          "need": 2,
+          "with_rsi": false,
+          "sl": 2,
+          "tp": 0
+        },
+        "sides": "long",
+        "coins": "BTC+ETH",
+        "A": {
+          "n": 26,
+          "win": 53.8,
+          "r": 146.6,
+          "r_year": 40.53,
+          "pct_year": 40.5,
+          "dd_r": -5.3,
+          "streak": 5
+        },
+        "B": {
+          "n": 25,
+          "win": 48.0,
+          "r": 9.5,
+          "r_year": 3.95,
+          "pct_year": 3.9,
+          "dd_r": -5.5,
+          "streak": 4
+        },
+        "label": "votos {'need': 2, 'with_rsi': False, 'sl': 2, 'tp': 0} solo largos BTC+ETH"
+      }
+    ],
+    "robustas_total": 318,
+    "validas_total": 644
   }
 }
