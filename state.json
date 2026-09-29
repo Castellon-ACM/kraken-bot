@@ -1,0 +1,16 @@
+{
+  "day": "2026-09-29",
+  "day_start_equity": 7.167548466233034,
+  "initial_equity": 7.167548466233034,
+  "halted_today": false,
+  "last_candle": {
+    "PF_XBTUSD": 1790679600000,
+    "PF_ETHUSD": 1790679600000
+  },
+  "open": {},
+  "handled_close_all": 0,
+  "events": [],
+  "env": "live",
+  "leverage_set": true,
+  "last_equity": 7.166856403022072
+}
