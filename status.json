@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-29T15:25:39+00:00",
+  "updated": "2026-09-29T15:37:13+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -16,6 +16,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-09-29T15:37:12+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83466.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (74705 – 87795)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2687.6,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2357 – 2808)"
+        }
+      ]
+    },
     {
       "t": "2026-09-29T15:25:38+00:00",
       "trading": true,
