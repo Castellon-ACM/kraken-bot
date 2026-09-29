@@ -4,8 +4,8 @@
   "initial_equity": 7.32,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1790683200000,
-    "PF_ETHUSD": 1790683200000
+    "PF_XBTUSD": 1790686800000,
+    "PF_ETHUSD": 1790686800000
   },
   "open": {},
   "handled_close_all": 0,
@@ -19,6 +19,26 @@
   "leverage_set": true,
   "last_equity": 7.32,
   "runs": [
+    {
+      "t": "2026-09-29T14:03:41+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 84186.0,
+          "trend": "alcista",
+          "gap": -0.023,
+          "decision": "Sin señal: la media rápida sigue por debajo de la lenta, no ha habido cruce en esta vela"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2726.0,
+          "trend": "alcista",
+          "gap": 0.373,
+          "decision": "Sin señal: la media rápida sigue por encima de la lenta, no ha habido cruce en esta vela"
+        }
+      ]
+    },
     {
       "t": "2026-09-29T13:54:10+00:00",
       "trading": true,
