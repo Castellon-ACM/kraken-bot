@@ -1,6 +1,7 @@
 """
 Prueba histórica: busca las últimas N señales que habría dado la estrategia en BTC y ETH
 y simula qué habría pasado con cada una (stop 2 ATR, objetivo 3 ATR, cierre por cruce contrario).
+Con mode=optimize en backtest_request.json prueba muchas combinaciones de ajustes.
 """
 
 import time
@@ -50,13 +51,17 @@ def atr_series(c, n):
 
 def simulate(sym, c, p):
     cl = [x["c"] for x in c]
-    f, s, t = ema_series(cl, p["fast"]), ema_series(cl, p["slow"]), ema_series(cl, p["trend"])
+    f, s = ema_series(cl, p["fast"]), ema_series(cl, p["slow"])
+    t = ema_series(cl, p["trend"]) if p["trend"] else None
     a = atr_series(c, p["atr"])
     trades, busy_until = [], -1
-    for i in range(p["trend"] + 5, len(c) - 1):
+    for i in range(max(p["trend"], p["slow"]) + 5, len(c) - 1):
         up = f[i - 1] <= s[i - 1] and f[i] > s[i]
         down = f[i - 1] >= s[i - 1] and f[i] < s[i]
-        side = "long" if up and cl[i] > t[i] else "short" if down and cl[i] < t[i] else None
+        if p["trend"]:
+            side = "long" if up and cl[i] > t[i] else "short" if down and cl[i] < t[i] else None
+        else:
+            side = "long" if up else "short" if down else None
         if not side:
             continue
         sig = {"symbol": sym, "t": c[i]["t"], "side": side, "entry": cl[i]}
@@ -96,6 +101,13 @@ def simulate(sym, c, p):
 
 
 def run_backtest(charts_url, symbols, names, p, n=100, hours=17520):
+    import json, os
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "backtest_request.json")) as fh:
+            if json.load(fh).get("mode") == "optimize":
+                return optimize(charts_url, symbols, names, p, hours)
+    except FileNotFoundError:
+        pass
     allsig = []
     for sym in symbols:
         allsig += simulate(names[sym], candles_history(charts_url, sym, hours), p)
@@ -133,3 +145,41 @@ def _streak(taken):
         cur = cur + 1 if x["r"] <= 0 else 0
         best = max(best, cur)
     return best
+
+
+def _stats(trades, risk):
+    tk = [x for x in trades if x.get("r") is not None]
+    n = len(tk)
+    net = round(sum(x["r"] for x in tk), 2)
+    return {"n": n, "win": round(100 * sum(x["r"] > 0 for x in tk) / n, 1) if n else 0,
+            "net_r": net, "pct": round(net * risk * 100, 1), "streak": _streak(tk)}
+
+
+def optimize(charts_url, symbols, names, base, hours=17520):
+    """Busca la mejor combinación en el primer año y la comprueba en el segundo (datos que no ha visto)."""
+    data = {names[s]: candles_history(charts_url, s, hours) for s in symbols}
+    split = (int(time.time()) - 365 * 86400) * 1000
+    grid = []
+    for fast, slow in ((9, 21), (12, 26), (21, 55), (34, 89)):
+        for trend in (0, 100, 200):
+            for sl in (1.5, 2.0, 3.0):
+                for tp in (2.0, 3.0, 4.5):
+                    grid.append({"fast": fast, "slow": slow, "trend": trend, "atr": base["atr"], "sl": sl, "tp": tp})
+    rows = []
+    for p in grid:
+        per = {name: simulate(name, c, p) for name, c in data.items()}
+        for combo in (["BTC"], ["ETH"], ["BTC", "ETH"]):
+            tr = [x for name in combo for x in per[name]]
+            ins = _stats([x for x in tr if x["t"] < split], base["risk"])
+            oos = _stats([x for x in tr if x["t"] >= split], base["risk"])
+            rows.append({"coins": "+".join(combo), **{k: p[k] for k in ("fast", "slow", "trend", "sl", "tp")},
+                         "year1": ins, "year2": oos})
+    current = [r for r in rows if r["coins"] == "BTC+ETH" and r["fast"] == base["fast"] and r["slow"] == base["slow"]
+               and r["trend"] == base["trend"] and r["sl"] == base["sl"] and r["tp"] == base["tp"]]
+    ranked = sorted([r for r in rows if r["year1"]["n"] >= 30], key=lambda r: r["year1"]["net_r"], reverse=True)
+    both_good = sorted([r for r in rows if r["year1"]["n"] >= 30 and r["year2"]["n"] >= 30
+                        and r["year1"]["net_r"] > 0 and r["year2"]["net_r"] > 0],
+                       key=lambda r: min(r["year1"]["net_r"], r["year2"]["net_r"]), reverse=True)
+    return {"generated": int(time.time() * 1000), "tested": len(rows), "current": current[0] if current else None,
+            "best_year1": ranked[:10], "robust": both_good[:10],
+            "robust_count": len(both_good)}
