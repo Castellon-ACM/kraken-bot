@@ -249,6 +249,16 @@ class Bot:
 
         equity = self.k.equity()
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        # si el bot no tiene operaciones y el saldo cambia de golpe, es un ingreso o una retirada tuya
+        last = self.state.get("last_equity")
+        if last is not None and not self.state["open"]:
+            delta = equity - last
+            if abs(delta) > max(0.5, 0.02 * last):
+                self.state["day_start_equity"] = max(0, self.state["day_start_equity"] + delta)
+                self.state["initial_equity"] = max(0, self.state["initial_equity"] + delta)
+                self.state["halted_today"] = False
+                self.event(f"{'Ingreso' if delta > 0 else 'Retirada'} de {abs(delta):.2f} $ en la cartera de futuros. "
+                           "No cuenta como ganancia ni pérdida.")
         if not self.state["initial_equity"]:
             self.state["initial_equity"] = equity
         if self.state["day"] != today:
@@ -260,12 +270,12 @@ class Bot:
             self.close_all("cierre manual desde el panel")
 
         start = self.state["day_start_equity"] or equity
-        if (start - equity) / start >= MAX_DAILY_LOSS and not self.state["halted_today"]:
+        if start > 0 and (start - equity) / start >= MAX_DAILY_LOSS and not self.state["halted_today"]:
             self.close_all("pérdida máxima diaria")
             self.state["halted_today"] = True
             self.event("Pérdida diaria del 6 % alcanzada. Sin operar hasta mañana.")
 
-        active = bool(self.control.get("active")) and not self.state["halted_today"]
+        active = bool(self.control.get("active")) and not self.state["halted_today"] and equity >= 1
         positions = self.k.positions()
         for sym in SYMBOLS:
             pos = positions.get(sym)
@@ -289,7 +299,8 @@ class Bot:
             if entry and not pos and active:
                 self.open(sym, entry, price, a, equity)
 
-        self.write_status(active)
+        self.write_status(active, error=None if equity >= 1 else
+                          "No hay saldo en la cartera de futuros de Kraken. Transfiere fondos para que el bot pueda operar.")
 
     def write_status(self, active, error=None):
         try:

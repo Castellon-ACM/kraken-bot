@@ -1,21 +1,13 @@
 {
   "day": "2026-09-29",
-  "day_start_equity": 7.167548466233034,
-  "initial_equity": 7.167548466233034,
-  "halted_today": true,
-  "last_candle": {
-    "PF_XBTUSD": 1790679600000,
-    "PF_ETHUSD": 1790679600000
-  },
+  "day_start_equity": 0,
+  "initial_equity": 0,
+  "halted_today": false,
+  "last_candle": {},
   "open": {},
   "handled_close_all": 0,
-  "events": [
-    {
-      "t": "2026-09-29T12:40:09+00:00",
-      "msg": "Pérdida diaria del 6 % alcanzada. Sin operar hasta mañana."
-    }
-  ],
+  "events": [],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 0.0
+  "last_equity": 0
 }
