@@ -1,7 +1,7 @@
 {
   "day": "2026-09-29",
-  "day_start_equity": 0,
-  "initial_equity": 0.0,
+  "day_start_equity": 7.32,
+  "initial_equity": 7.32,
   "halted_today": false,
   "last_candle": {
     "PF_XBTUSD": 1790679600000,
@@ -9,8 +9,13 @@
   },
   "open": {},
   "handled_close_all": 0,
-  "events": [],
+  "events": [
+    {
+      "t": "2026-09-29T12:48:51+00:00",
+      "msg": "Ingreso de 7.32 $ en la cartera de futuros. No cuenta como ganancia ni pérdida."
+    }
+  ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 0.0
+  "last_equity": 7.32
 }

@@ -1,14 +1,19 @@
 {
-  "updated": "2026-09-29T12:44:42+00:00",
+  "updated": "2026-09-29T12:48:53+00:00",
   "env": "live",
   "active": false,
   "trading": false,
   "halted_today": false,
-  "equity": 0.0,
+  "equity": 7.32,
   "day_pnl": 0.0,
   "total_pnl": 0.0,
-  "initial_equity": 0.0,
+  "initial_equity": 7.32,
   "positions": [],
-  "events": [],
-  "error": "No hay saldo en la cartera de futuros de Kraken. Transfiere fondos para que el bot pueda operar."
+  "events": [
+    {
+      "t": "2026-09-29T12:48:51+00:00",
+      "msg": "Ingreso de 7.32 $ en la cartera de futuros. No cuenta como ganancia ni pérdida."
+    }
+  ],
+  "error": null
 }
