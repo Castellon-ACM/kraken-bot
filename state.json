@@ -1,11 +1,11 @@
 {
-  "day": "2026-10-05",
-  "day_start_equity": 23.2573,
+  "day": "2026-10-06",
+  "day_start_equity": 23.2216,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1791072000000,
-    "PF_ETHUSD": 1791072000000
+    "PF_XBTUSD": 1791158400000,
+    "PF_ETHUSD": 1791158400000
   },
   "open": {},
   "handled_close_all": 0,
@@ -21,8 +21,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.2318,
+  "last_equity": 23.2216,
   "runs": [
+    {
+      "t": "2026-10-06T02:51:17+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 85754.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (74705 – 87795)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2709.8,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2357 – 2808)"
+        }
+      ]
+    },
     {
       "t": "2026-10-05T22:52:03+00:00",
       "trading": true,
