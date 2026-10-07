@@ -21,8 +21,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.181,
+  "last_equity": 23.1934,
   "runs": [
+    {
+      "t": "2026-10-07T20:06:07+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 85552.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2697.6,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-10-07T14:25:12+00:00",
       "trading": true,
@@ -1126,26 +1150,6 @@
           "trend": "alcista",
           "gap": 0.373,
           "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
-        }
-      ]
-    },
-    {
-      "t": "2026-09-29T14:03:41+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84186.0,
-          "trend": "alcista",
-          "gap": -0.023,
-          "decision": "Sin señal: la media rápida sigue por debajo de la lenta, no ha habido cruce en esta vela"
-        },
-        {
-          "symbol": "ETH",
-          "price": 2726.0,
-          "trend": "alcista",
-          "gap": 0.373,
-          "decision": "Sin señal: la media rápida sigue por encima de la lenta, no ha habido cruce en esta vela"
         }
       ]
     }
