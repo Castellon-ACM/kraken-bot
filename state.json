@@ -1,11 +1,11 @@
 {
-  "day": "2026-10-07",
-  "day_start_equity": 23.2707,
+  "day": "2026-10-08",
+  "day_start_equity": 23.2039,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1791244800000,
-    "PF_ETHUSD": 1791244800000
+    "PF_XBTUSD": 1791331200000,
+    "PF_ETHUSD": 1791331200000
   },
   "open": {},
   "handled_close_all": 0,
@@ -21,8 +21,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.1934,
+  "last_equity": 23.2039,
   "runs": [
+    {
+      "t": "2026-10-08T00:08:02+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83290.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (75941 – 87795)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2573.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2412 – 2808)"
+        }
+      ]
+    },
     {
       "t": "2026-10-07T20:06:07+00:00",
       "trading": true,
@@ -1130,26 +1154,6 @@
           "adx": 19.2,
           "rsi": 55.6,
           "decision": "Mercado lateral (ADX 19), pero el precio no está en un extremo (RSI 56)"
-        }
-      ]
-    },
-    {
-      "t": "2026-09-29T14:38:35+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84186.0,
-          "trend": "alcista",
-          "gap": -0.023,
-          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2726.0,
-          "trend": "alcista",
-          "gap": 0.373,
-          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
         }
       ]
     }

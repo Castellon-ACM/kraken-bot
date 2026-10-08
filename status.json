@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-07T20:06:08+00:00",
+  "updated": "2026-10-08T00:08:02+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.19,
-  "day_pnl": -0.08,
-  "total_pnl": -0.2,
+  "equity": 23.2,
+  "day_pnl": 0.0,
+  "total_pnl": -0.19,
   "initial_equity": 23.39,
   "positions": [],
   "events": [
@@ -20,6 +20,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-08T00:08:02+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83290.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (75941 – 87795)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2573.0,
+          "trend": "alcista",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2412 – 2808)"
+        }
+      ]
+    },
     {
       "t": "2026-10-07T20:06:07+00:00",
       "trading": true,
@@ -1127,26 +1151,6 @@
           "adx": 19.2,
           "rsi": 55.6,
           "decision": "Mercado lateral (ADX 19), pero el precio no está en un extremo (RSI 56)"
-        }
-      ]
-    },
-    {
-      "t": "2026-09-29T14:38:35+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84186.0,
-          "trend": "alcista",
-          "gap": -0.023,
-          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2726.0,
-          "trend": "alcista",
-          "gap": 0.373,
-          "decision": "Vela de 1 h ya analizada en la pasada anterior. Espera al cierre de la siguiente."
         }
       ]
     }
