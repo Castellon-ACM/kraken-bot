@@ -53,7 +53,10 @@ def decide(x, i):
         return None
     p, t = x["c"][i], x["trend"][i]
     bull = p > t
-    d = {"side": None, "mode": "ruptura", "atr": x["atr"][i], "price": p, "trend": "alcista" if bull else "bajista",
+    dist = (t / p - 1) * 100
+    t_txt = f"{t:,.0f}".replace(",", ".")
+    trend_txt = f"{'alcista' if bull else 'bajista'} (media de 200 días: {t_txt} $, a un {dist:+.1f} %)"
+    d = {"side": None, "mode": "ruptura", "atr": x["atr"][i], "price": p, "trend": trend_txt, "ema200": round(t, 2),
          "regime": "diario", "adx": None, "rsi": None, "sl": SL_ATR, "tp": TP_ATR}
     hi, lo = x["eh"][i], x["el"][i]
     if p > hi and bull:
