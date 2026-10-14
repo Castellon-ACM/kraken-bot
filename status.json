@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-13T21:48:00+00:00",
+  "updated": "2026-10-14T01:03:07+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.2,
-  "day_pnl": 0.04,
+  "equity": 23.21,
+  "day_pnl": 0.0,
   "total_pnl": -0.19,
   "initial_equity": 23.39,
   "positions": [],
@@ -20,6 +20,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-14T01:03:06+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 83102.0,
+          "trend": "alcista (media de 200 días: 74.988 $, a un -9.8 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (80320 – 87424)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2495.8,
+          "trend": "alcista (media de 200 días: 2.286 $, a un -8.4 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2405 – 2788)"
+        }
+      ]
+    },
     {
       "t": "2026-10-13T21:47:59+00:00",
       "trading": true,
@@ -1145,30 +1169,6 @@
           "adx": null,
           "rsi": null,
           "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2357 – 2808)"
-        }
-      ]
-    },
-    {
-      "t": "2026-10-03T23:42:39+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84501.0,
-          "trend": "alcista",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2668.1,
-          "trend": "alcista",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
         }
       ]
     }
