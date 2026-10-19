@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-19T17:07:41+00:00",
+  "updated": "2026-10-19T21:42:29+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.21,
+  "equity": 23.22,
   "day_pnl": -0.03,
-  "total_pnl": -0.18,
+  "total_pnl": -0.17,
   "initial_equity": 23.39,
   "positions": [],
   "events": [
@@ -24,6 +24,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-19T21:42:29+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 82008.0,
+          "trend": "alcista (media de 200 días: 75.205 $, a un -8.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2407.5,
+          "trend": "alcista (media de 200 días: 2.290 $, a un -4.9 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-10-19T17:07:40+00:00",
       "trading": true,
@@ -1130,30 +1154,6 @@
     },
     {
       "t": "2026-10-11T19:39:59+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 82914.0,
-          "trend": "alcista",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2503.9,
-          "trend": "alcista",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-11T15:31:32+00:00",
       "trading": true,
       "items": [
         {
