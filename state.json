@@ -25,8 +25,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.2301,
+  "last_equity": 23.2033,
   "runs": [
+    {
+      "t": "2026-10-26T10:25:07+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 80045.0,
+          "trend": "alcista (media de 200 días: 75.567 $, a un -5.6 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2326.6,
+          "trend": "alcista (media de 200 días: 2.292 $, a un -1.5 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-10-26T04:20:33+00:00",
       "trading": true,
@@ -1133,30 +1157,6 @@
     },
     {
       "t": "2026-10-18T17:29:28+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 81384.0,
-          "trend": "alcista (media de 200 días: 75.081 $, a un -7.7 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2399.7,
-          "trend": "alcista (media de 200 días: 2.283 $, a un -4.8 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-18T14:26:38+00:00",
       "trading": true,
       "items": [
         {
