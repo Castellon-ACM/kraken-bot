@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-28T23:57:37+00:00",
+  "updated": "2026-10-29T05:24:24+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.14,
-  "day_pnl": 0.05,
-  "total_pnl": -0.25,
+  "equity": 23.12,
+  "day_pnl": 0.0,
+  "total_pnl": -0.28,
   "initial_equity": 23.39,
   "positions": [],
   "events": [
@@ -24,6 +24,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-29T05:24:24+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 81235.0,
+          "trend": "alcista (media de 200 días: 75.930 $, a un -6.5 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (79056 – 84846)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2355.3,
+          "trend": "alcista (media de 200 días: 2.305 $, a un -2.1 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2279 – 2586)"
+        }
+      ]
+    },
     {
       "t": "2026-10-28T23:57:36+00:00",
       "trading": true,
@@ -1130,30 +1154,6 @@
     },
     {
       "t": "2026-10-20T21:09:05+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 81854.0,
-          "trend": "alcista (media de 200 días: 75.236 $, a un -8.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2405.5,
-          "trend": "alcista (media de 200 días: 2.292 $, a un -4.7 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-20T19:57:00+00:00",
       "trading": true,
       "items": [
         {
