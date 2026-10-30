@@ -1,15 +1,30 @@
 {
-  "updated": "2026-10-30T02:29:20+00:00",
+  "updated": "2026-10-30T08:53:56+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
   "equity": 23.19,
-  "day_pnl": 0.07,
+  "day_pnl": -0.0,
   "total_pnl": -0.2,
   "initial_equity": 23.39,
-  "positions": [],
+  "positions": [
+    {
+      "symbol": "ETH",
+      "side": "short",
+      "size": 0.003,
+      "entry": 2225.8,
+      "mark": 2226.08456450611,
+      "pnl": -0.0,
+      "sl": 2409.7,
+      "tp": null
+    }
+  ],
   "events": [
+    {
+      "t": "2026-10-30T08:53:56+00:00",
+      "msg": "Abierta venta ETH (ruptura) a 2225.8 (stop 2409.7, sin objetivo fijo)"
+    },
     {
       "t": "2026-10-30T02:29:20+00:00",
       "msg": "Error: 503 Server Error: Service Unavailable for url: https://futures.kraken.com/derivatives/api/v3/accounts"
@@ -28,6 +43,31 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-30T08:53:56+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 77834.0,
+          "trend": "alcista (media de 200 días: 75.846 $, a un -2.6 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Rompe el rango de 20 días, pero contra la tendencia de fondo (media de 200), así que no entra"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2248.7,
+          "trend": "bajista (media de 200 días: 2.301 $, a un +2.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Cierra por debajo del mínimo de 20 días (2279) en tendencia bajista. Operación de venta abierta (ruptura)",
+          "action": true
+        }
+      ]
+    },
     {
       "t": "2026-10-29T22:55:09+00:00",
       "trading": true,
@@ -1155,31 +1195,7 @@
           "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
         }
       ]
-    },
-    {
-      "t": "2026-10-21T06:28:02+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 82938.0,
-          "trend": "alcista (media de 200 días: 75.430 $, a un -9.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2446.9,
-          "trend": "alcista (media de 200 días: 2.296 $, a un -6.2 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
     }
   ],
-  "error": "503 Server Error: Service Unavailable for url: https://futures.kraken.com/derivatives/api/v3/accounts"
+  "error": null
 }
