@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T22:55:10+00:00",
+  "updated": "2026-10-30T02:29:20+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -10,6 +10,10 @@
   "initial_equity": 23.39,
   "positions": [],
   "events": [
+    {
+      "t": "2026-10-30T02:29:20+00:00",
+      "msg": "Error: 503 Server Error: Service Unavailable for url: https://futures.kraken.com/derivatives/api/v3/accounts"
+    },
     {
       "t": "2026-10-15T07:15:14+00:00",
       "msg": "Error: 503 Server Error: Service Unavailable for url: https://futures.kraken.com/derivatives/api/v3/accounts"
@@ -1177,5 +1181,5 @@
       ]
     }
   ],
-  "error": null
+  "error": "503 Server Error: Service Unavailable for url: https://futures.kraken.com/derivatives/api/v3/accounts"
 }
