@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-31T06:13:26+00:00",
+  "updated": "2026-10-31T12:58:24+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.16,
-  "day_pnl": 0.0,
-  "total_pnl": -0.24,
+  "equity": 23.12,
+  "day_pnl": -0.03,
+  "total_pnl": -0.27,
   "initial_equity": 23.39,
   "positions": [
     {
@@ -14,8 +14,8 @@
       "side": "short",
       "size": 0.003,
       "entry": 2225.8,
-      "mark": 2239.525726464,
-      "pnl": -0.04,
+      "mark": 2249.86760930339,
+      "pnl": -0.07,
       "sl": 2409.7,
       "tp": null
     }
@@ -43,6 +43,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-31T12:58:24+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 77234.0,
+          "trend": "alcista (media de 200 días: 75.856 $, a un -1.8 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2241.7,
+          "trend": "bajista (media de 200 días: 2.301 $, a un +2.6 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-10-31T06:13:26+00:00",
       "trading": true,
@@ -1169,30 +1193,6 @@
           "adx": null,
           "rsi": null,
           "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-22T04:19:00+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84027.0,
-          "trend": "alcista (media de 200 días: 75.547 $, a un -10.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (79616 – 87424)"
-        },
-        {
-          "symbol": "ETH",
-          "price": 2472.1,
-          "trend": "alcista (media de 200 días: 2.297 $, a un -7.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2308 – 2778)"
         }
       ]
     }
