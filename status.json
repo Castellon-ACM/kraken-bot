@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-31T17:36:17+00:00",
+  "updated": "2026-10-31T20:38:35+00:00",
   "env": "live",
   "active": true,
   "trading": true,
   "halted_today": false,
-  "equity": 23.13,
+  "equity": 23.12,
   "day_pnl": -0.03,
   "total_pnl": -0.27,
   "initial_equity": 23.39,
@@ -14,7 +14,7 @@
       "side": "short",
       "size": 0.003,
       "entry": 2225.8,
-      "mark": 2249.0314908015,
+      "mark": 2250.35824111937,
       "pnl": -0.07,
       "sl": 2409.7,
       "tp": null
@@ -43,6 +43,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-10-31T20:38:34+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 77234.0,
+          "trend": "alcista (media de 200 días: 75.856 $, a un -1.8 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2241.7,
+          "trend": "bajista (media de 200 días: 2.301 $, a un +2.6 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-10-31T17:36:16+00:00",
       "trading": true,
@@ -1150,30 +1174,6 @@
     },
     {
       "t": "2026-10-22T19:07:14+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 84027.0,
-          "trend": "alcista (media de 200 días: 75.547 $, a un -10.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2472.1,
-          "trend": "alcista (media de 200 días: 2.297 $, a un -7.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-22T14:37:13+00:00",
       "trading": true,
       "items": [
         {
