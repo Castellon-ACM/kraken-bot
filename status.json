@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07T20:05:39+00:00",
+  "updated": "2026-11-07T23:36:07+00:00",
   "env": "live",
   "active": true,
   "trading": true,
@@ -36,6 +36,30 @@
     }
   ],
   "runs": [
+    {
+      "t": "2026-11-07T23:36:06+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 75753.0,
+          "trend": "bajista (media de 200 días: 75.994 $, a un +0.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2235.6,
+          "trend": "bajista (media de 200 días: 2.302 $, a un +3.0 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-11-07T20:05:38+00:00",
       "trading": true,
@@ -1143,30 +1167,6 @@
     },
     {
       "t": "2026-10-27T12:35:58+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 80024.0,
-          "trend": "alcista (media de 200 días: 75.798 $, a un -5.3 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2320.9,
-          "trend": "alcista (media de 200 días: 2.299 $, a un -0.9 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-27T06:07:50+00:00",
       "trading": true,
       "items": [
         {
