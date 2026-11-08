@@ -1,11 +1,11 @@
 {
-  "day": "2026-11-07",
-  "day_start_equity": 22.5762,
+  "day": "2026-11-08",
+  "day_start_equity": 22.5746,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1793923200000,
-    "PF_ETHUSD": 1793923200000
+    "PF_XBTUSD": 1794009600000,
+    "PF_ETHUSD": 1794009600000
   },
   "open": {},
   "handled_close_all": 0,
@@ -39,6 +39,30 @@
   "leverage_set": true,
   "last_equity": 22.5746,
   "runs": [
+    {
+      "t": "2026-11-08T02:40:26+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 75772.0,
+          "trend": "bajista (media de 200 días: 75.915 $, a un +0.2 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (74700 – 84846)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 2237.2,
+          "trend": "bajista (media de 200 días: 2.299 $, a un +2.8 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2169 – 2524)"
+        }
+      ]
+    },
     {
       "t": "2026-11-07T23:36:06+00:00",
       "trading": true,
@@ -1146,30 +1170,6 @@
     },
     {
       "t": "2026-10-27T18:13:16+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 80024.0,
-          "trend": "alcista (media de 200 días: 75.798 $, a un -5.3 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2320.9,
-          "trend": "alcista (media de 200 días: 2.299 $, a un -0.9 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-27T12:35:58+00:00",
       "trading": true,
       "items": [
         {
