@@ -58,8 +58,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 22.887191651435668,
+  "last_equity": 23.07685850993608,
   "runs": [
+    {
+      "t": "2026-11-13T10:43:56+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 71379.0,
+          "trend": "bajista (media de 200 días: 75.811 $, a un +6.2 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 2017.2,
+          "trend": "bajista (media de 200 días: 2.285 $, a un +13.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-11-13T02:51:01+00:00",
       "trading": true,
@@ -1168,30 +1192,6 @@
     },
     {
       "t": "2026-10-31T23:59:19+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 77234.0,
-          "trend": "alcista (media de 200 días: 75.856 $, a un -1.8 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2241.7,
-          "trend": "bajista (media de 200 días: 2.301 $, a un +2.6 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-31T20:38:34+00:00",
       "trading": true,
       "items": [
         {
