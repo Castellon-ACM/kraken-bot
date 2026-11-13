@@ -1,11 +1,11 @@
 {
-  "day": "2026-11-12",
-  "day_start_equity": 22.717770527404447,
+  "day": "2026-11-13",
+  "day_start_equity": 22.888091608329944,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1794355200000,
-    "PF_ETHUSD": 1794355200000
+    "PF_XBTUSD": 1794441600000,
+    "PF_ETHUSD": 1794441600000
   },
   "open": {
     "PF_ETHUSD": {
@@ -13,10 +13,20 @@
       "sl": 2343.5,
       "tp": null,
       "mode": "ruptura"
+    },
+    "PF_XBTUSD": {
+      "side": "short",
+      "sl": 74833.0,
+      "tp": null,
+      "mode": "ruptura"
     }
   },
   "handled_close_all": 0,
   "events": [
+    {
+      "t": "2026-11-13T02:51:01+00:00",
+      "msg": "Abierta venta BTC (ruptura) a 70148.0 (stop 74833.0, sin objetivo fijo)"
+    },
     {
       "t": "2026-11-09T00:41:29+00:00",
       "msg": "Abierta venta ETH (ruptura) a 2135.0 (stop 2343.5, sin objetivo fijo)"
@@ -48,8 +58,33 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 22.806654114139143,
+  "last_equity": 22.887191651435668,
   "runs": [
+    {
+      "t": "2026-11-13T02:51:01+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 71379.0,
+          "trend": "bajista (media de 200 días: 75.811 $, a un +6.2 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Cierra por debajo del mínimo de 20 días (72665) en tendencia bajista. Operación de venta abierta (ruptura)",
+          "action": true
+        },
+        {
+          "symbol": "ETH",
+          "price": 2017.2,
+          "trend": "bajista (media de 200 días: 2.285 $, a un +13.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2003 – 2448)"
+        }
+      ]
+    },
     {
       "t": "2026-11-12T22:24:51+00:00",
       "trading": true,
@@ -1157,30 +1192,6 @@
     },
     {
       "t": "2026-10-31T20:38:34+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 77234.0,
-          "trend": "alcista (media de 200 días: 75.856 $, a un -1.8 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2241.7,
-          "trend": "bajista (media de 200 días: 2.301 $, a un +2.6 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-10-31T17:36:16+00:00",
       "trading": true,
       "items": [
         {
