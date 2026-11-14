@@ -1,11 +1,11 @@
 {
-  "day": "2026-11-13",
-  "day_start_equity": 22.888091608329944,
+  "day": "2026-11-14",
+  "day_start_equity": 23.398516302386504,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1794441600000,
-    "PF_ETHUSD": 1794441600000
+    "PF_XBTUSD": 1794528000000,
+    "PF_ETHUSD": 1794528000000
   },
   "open": {
     "PF_ETHUSD": {
@@ -58,8 +58,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.238629419625177,
+  "last_equity": 23.399437030069286,
   "runs": [
+    {
+      "t": "2026-11-14T05:56:14+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 68247.0,
+          "trend": "bajista (media de 200 días: 75.744 $, a un +11.0 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Cierra por debajo del mínimo de 20 días (71047) en tendencia bajista, pero ya hay una posición abierta en BTC"
+        },
+        {
+          "symbol": "ETH",
+          "price": 1927.3,
+          "trend": "bajista (media de 200 días: 2.282 $, a un +18.4 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Cierra por debajo del mínimo de 20 días (1981) en tendencia bajista, pero ya hay una posición abierta en ETH"
+        }
+      ]
+    },
     {
       "t": "2026-11-13T23:47:43+00:00",
       "trading": true,
@@ -1168,30 +1192,6 @@
     },
     {
       "t": "2026-11-01T22:16:23+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 77457.0,
-          "trend": "alcista (media de 200 días: 75.916 $, a un -2.0 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2252.7,
-          "trend": "bajista (media de 200 días: 2.301 $, a un +2.1 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-11-01T18:22:36+00:00",
       "trading": true,
       "items": [
         {
