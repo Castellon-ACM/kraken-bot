@@ -1,11 +1,11 @@
 {
-  "day": "2026-11-16",
-  "day_start_equity": 23.892477002620936,
+  "day": "2026-11-17",
+  "day_start_equity": 23.885917315859203,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1794700800000,
-    "PF_ETHUSD": 1794700800000
+    "PF_XBTUSD": 1794787200000,
+    "PF_ETHUSD": 1794787200000
   },
   "open": {
     "PF_ETHUSD": {
@@ -58,8 +58,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 23.883033453675473,
+  "last_equity": 23.886744316952864,
   "runs": [
+    {
+      "t": "2026-11-17T02:51:44+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 64822.0,
+          "trend": "bajista (media de 200 días: 75.386 $, a un +16.3 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (61950 – 81900)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 1818.7,
+          "trend": "bajista (media de 200 días: 2.267 $, a un +24.7 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (1710 – 2448)"
+        }
+      ]
+    },
     {
       "t": "2026-11-16T19:46:48+00:00",
       "trading": true,
@@ -1168,30 +1192,6 @@
     },
     {
       "t": "2026-11-05T15:44:16+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 80437.0,
-          "trend": "alcista (media de 200 días: 76.083 $, a un -5.4 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2422.5,
-          "trend": "alcista (media de 200 días: 2.308 $, a un -4.7 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-11-05T07:14:37+00:00",
       "trading": true,
       "items": [
         {
