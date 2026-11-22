@@ -58,8 +58,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 24.85496912053306,
+  "last_equity": 24.52328403584215,
   "runs": [
+    {
+      "t": "2026-11-22T15:35:16+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 60097.0,
+          "trend": "bajista (media de 200 días: 74.737 $, a un +24.4 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        },
+        {
+          "symbol": "ETH",
+          "price": 1682.4,
+          "trend": "bajista (media de 200 días: 2.240 $, a un +33.2 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
+        }
+      ]
+    },
     {
       "t": "2026-11-22T07:19:43+00:00",
       "trading": true,
@@ -1186,30 +1210,6 @@
           "adx": null,
           "rsi": null,
           "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        }
-      ]
-    },
-    {
-      "t": "2026-11-11T02:08:44+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 73709.0,
-          "trend": "bajista (media de 200 días: 75.803 $, a un +2.8 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (73342 – 84846)"
-        },
-        {
-          "symbol": "ETH",
-          "price": 2050.4,
-          "trend": "bajista (media de 200 días: 2.285 $, a un +11.4 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2003 – 2524)"
         }
       ]
     }
