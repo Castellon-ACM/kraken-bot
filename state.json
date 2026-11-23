@@ -1,11 +1,11 @@
 {
-  "day": "2026-11-22",
-  "day_start_equity": 24.671120552523853,
+  "day": "2026-11-23",
+  "day_start_equity": 24.561325831073752,
   "initial_equity": 23.3928,
   "halted_today": false,
   "last_candle": {
-    "PF_XBTUSD": 1795219200000,
-    "PF_ETHUSD": 1795219200000
+    "PF_XBTUSD": 1795305600000,
+    "PF_ETHUSD": 1795305600000
   },
   "open": {
     "PF_ETHUSD": {
@@ -58,8 +58,32 @@
   ],
   "env": "live",
   "leverage_set": true,
-  "last_equity": 24.502537491460604,
+  "last_equity": 24.562432895923106,
   "runs": [
+    {
+      "t": "2026-11-23T01:55:49+00:00",
+      "trading": true,
+      "items": [
+        {
+          "symbol": "BTC",
+          "price": 61169.0,
+          "trend": "bajista (media de 200 días: 74.574 $, a un +21.9 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (55076 – 81102)"
+        },
+        {
+          "symbol": "ETH",
+          "price": 1721.3,
+          "trend": "bajista (media de 200 días: 2.235 $, a un +29.8 %)",
+          "regime": "diario",
+          "adx": null,
+          "rsi": null,
+          "decision": "Sin señal: el precio sigue dentro del rango de 20 días (1535 – 2448)"
+        }
+      ]
+    },
     {
       "t": "2026-11-22T21:11:42+00:00",
       "trading": true,
@@ -1186,30 +1210,6 @@
           "adx": null,
           "rsi": null,
           "decision": "Sin señal: el precio sigue dentro del rango de 20 días (2003 – 2481)"
-        }
-      ]
-    },
-    {
-      "t": "2026-11-11T17:49:16+00:00",
-      "trading": true,
-      "items": [
-        {
-          "symbol": "BTC",
-          "price": 73709.0,
-          "trend": "bajista (media de 200 días: 75.803 $, a un +2.8 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
-        },
-        {
-          "symbol": "ETH",
-          "price": 2050.4,
-          "trend": "bajista (media de 200 días: 2.285 $, a un +11.4 %)",
-          "regime": "diario",
-          "adx": null,
-          "rsi": null,
-          "decision": "Vela diaria ya analizada. La próxima decisión será al cierre del día (las 02:00 en España en horario de verano)."
         }
       ]
     }
